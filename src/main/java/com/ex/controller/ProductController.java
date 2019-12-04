@@ -43,6 +43,7 @@ public class ProductController {
     @PostMapping("/insert")
     public String insert(@ModelAttribute Product product, Model model, Errors errors){
         productService.addProduct(product);
+        System.out.println("Xjie");
         return "hello";
     }
 }
