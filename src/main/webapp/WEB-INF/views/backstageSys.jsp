@@ -11,6 +11,10 @@
     <title>后台管理系统</title>
 </head>
 <body>
+<form method="post" action="${pageContext.request.contextPath}/product/add">
+    <input name="productName">
+    <button type="submit">提交</button>
+</form>
 
 </body>
 </html>
