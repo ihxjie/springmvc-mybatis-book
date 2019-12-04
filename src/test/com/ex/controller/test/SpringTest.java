@@ -11,6 +11,6 @@ public class SpringTest {
     public void testSpring(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         ExTestController exTestController = (ExTestController)applicationContext.getBean("exTestController");
-        exTestController.sayHello();
+
     }
 }

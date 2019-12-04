@@ -5,5 +5,14 @@
         select * from ex_user
     </select>
 
+    <select id="findUserById" resultType="com.ex.model.ExUser">
+        select * from ex_user
+        where id = #{id}
+    </select>
+
+    <delete id="deleteUserById" parameterType="int">
+        delete from ex_user where id = #{id}
+    </delete>
+
 
 </mapper>

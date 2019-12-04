@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ExUserService {
     List<ExUser> findAll();
+    ExUser findUserById(String id);
 }

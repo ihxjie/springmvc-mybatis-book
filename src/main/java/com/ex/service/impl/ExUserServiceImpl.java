@@ -3,7 +3,6 @@ package com.ex.service.impl;
 import com.ex.dao.ExUserDao;
 import com.ex.model.ExUser;
 import com.ex.service.ExUserService;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;//需要额外导入javax.annotation
@@ -20,4 +19,8 @@ public class ExUserServiceImpl implements ExUserService {
         return exUserDao.findAll();
     }
 
+    @Override
+    public ExUser findUserById(String id) {
+        return exUserDao.findUserById(id);
+    }
 }

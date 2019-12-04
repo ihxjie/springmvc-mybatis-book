@@ -1,18 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: xingj
-  Date: 11/26/2019
-  Time: 4:34 PM
+  Date: 2019/12/1
+  Time: 22:14
   To change this template use File | Settings | File Templates.
 --%>
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>后台管理系统</title>
 </head>
 <body>
-hello,ex
-${message}
 
 </body>
 </html>

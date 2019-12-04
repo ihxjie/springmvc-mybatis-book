@@ -7,5 +7,10 @@ import java.util.List;
 
 @Repository
 public interface ExUserDao {
+
     List<ExUser> findAll();
+
+    ExUser findUserById(String id);
+
+    int deleteUserById(int id);
 }
