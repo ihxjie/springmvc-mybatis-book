@@ -11,6 +11,32 @@
     <title>登录</title>
 </head>
 <body>
+<button onclick="test()">Test</button>
+<button onclick="post()">Post</button>
+<%--<form action="${pageContext.request.contextPath}/product/add"></form>--%>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script>
+    function test(){
+        $.ajax({
+            url:"test",
+            type:"get",
+            contentType : "application/json;charset=utf-8",
+            success:function (data) {
+                alert(data)
+            }
+
+        })
+    }
+    function post() {
+        $.ajax({
+            url:"add",
+            type:"post",
+            dataType:"json",
+            contentType:"application/json",
+            data:JSON.stringify({"productName":"iPhone 6s Plus"})
+        })
+    }
+</script>
 
 </body>
 </html>
