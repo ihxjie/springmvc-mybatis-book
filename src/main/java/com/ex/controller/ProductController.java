@@ -1,8 +1,11 @@
 package com.ex.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.ex.dao.ProductMapper;
 import com.ex.model.Product;
 import com.ex.service.ProductService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +29,7 @@ public class ProductController {
 
     @PostMapping(path = "/add")
     public String add(@RequestBody Product product){
+        System.out.println(product);
         productService.addProduct(product);
         return "hello";
     }
@@ -37,13 +41,24 @@ public class ProductController {
     }
     @GetMapping("/sayHello")
     public String sayHello(){
-        return "backstageSys";
+        return "login";
     }
 
     @PostMapping("/insert")
     public String insert(@ModelAttribute Product product, Model model, Errors errors){
         productService.addProduct(product);
-        System.out.println("Xjie");
         return "hello";
     }
+    @GetMapping(value = "/test",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public String getProduct(){
+        PageHelper.startPage(1,3);
+        List<Product> productList = productService.findAllProduct();
+        System.out.println("6");
+        PageInfo pageInfo = new PageInfo(productList);
+        System.out.println(JSON.toJSONString(pageInfo));
+        return JSON.toJSONString(pageInfo);
+
+    }
+
 }
