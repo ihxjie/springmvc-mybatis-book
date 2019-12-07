@@ -2,6 +2,7 @@ package com.ex.controller;
 
 import com.ex.dao.ProductMapper;
 import com.ex.model.Product;
+import com.ex.model.User;
 import com.ex.service.ProductService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -39,8 +40,8 @@ public class ProductController {
         return productService.findProductById(product_id);
     }
     @GetMapping("/sayHello")
-    public String sayHello(){
-        return "backstageSys";
+    public void sayHello(){
+        System.out.println("Hellow");
     }
 
     @PostMapping("/insert")
@@ -58,5 +59,13 @@ public class ProductController {
         PageInfo<Product> pageInfo = new PageInfo<Product>(productsList);
         map.addAttribute("pageInfo", pageInfo);
         return "list";
+    }
+
+    @RequestMapping("/testAjax")
+    public @ResponseBody User testAjax(@RequestBody User user){
+        System.out.println("tA执行了");
+        // 客户端发送ajax请求，传JSON字符串，后端把JSON字符串封装到user_2对象中
+        System.out.println(user);
+        return user;
     }
 }
