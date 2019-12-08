@@ -33,7 +33,7 @@
             type:"post",
             dataType:"json",
             contentType:"application/json",
-            data:JSON.stringify({"productName":"iPhone 6s Plus"})
+            data:JSON.stringify({"productName":"王星杰憨批"})
         })
     }
 </script>

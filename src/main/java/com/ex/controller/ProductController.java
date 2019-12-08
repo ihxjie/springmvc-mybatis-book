@@ -1,12 +1,10 @@
 package com.ex.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.ex.dao.ProductMapper;
 import com.ex.model.Product;
 import com.ex.service.ProductService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -39,9 +37,10 @@ public class ProductController {
     public Product getProductById(@PathVariable Integer product_id){
         return productService.findProductById(product_id);
     }
+
     @GetMapping("/sayHello")
     public String sayHello(){
-        return "login";
+        return "backstageSys";
     }
 
     @PostMapping("/insert")
