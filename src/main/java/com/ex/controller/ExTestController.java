@@ -10,7 +10,6 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
-@RequestMapping("/test")
 public class ExTestController {
 
     @Resource
@@ -20,6 +19,6 @@ public class ExTestController {
     @GetMapping("/hello")
     public String hello(Model model){
         model.addAttribute("message","hello");
-        return "backsta";
+        return "backstageSys";
     }
 }

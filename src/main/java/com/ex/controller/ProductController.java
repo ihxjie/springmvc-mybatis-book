@@ -1,12 +1,11 @@
 package com.ex.controller;
 
-import com.ex.dao.ProductMapper;
+import com.alibaba.fastjson.JSON;
 import com.ex.model.Product;
 import com.ex.model.User;
 import com.ex.service.ProductService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -30,6 +29,7 @@ public class ProductController {
 
     @PostMapping(path = "/add")
     public String add(@RequestBody Product product){
+        System.out.println(product);
         productService.addProduct(product);
         return "hello";
     }
@@ -39,6 +39,7 @@ public class ProductController {
     public Product getProductById(@PathVariable Integer product_id){
         return productService.findProductById(product_id);
     }
+
     @GetMapping("/sayHello")
     public void sayHello(){
         System.out.println("Hellow");
@@ -47,7 +48,6 @@ public class ProductController {
     @PostMapping("/insert")
     public String insert(@ModelAttribute Product product, Model model, Errors errors){
         productService.addProduct(product);
-        System.out.println("Xjie");
         return "hello";
     }
 
@@ -68,4 +68,16 @@ public class ProductController {
         System.out.println(user);
         return user;
     }
+    @GetMapping(value = "/test",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public String getProduct(){
+        PageHelper.startPage(1,3);
+        List<Product> productList = productService.findAllProduct();
+        System.out.println("6");
+        PageInfo pageInfo = new PageInfo(productList);
+        System.out.println(JSON.toJSONString(pageInfo));
+        return JSON.toJSONString(pageInfo);
+
+    }
+
 }

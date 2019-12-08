@@ -214,6 +214,13 @@
       <artifactId>jackson-annotations</artifactId>
       <version>2.10.1</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.jr/jackson-jr-all -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.jr</groupId>
+      <artifactId>jackson-jr-all</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
     <dependency>
       <groupId>org.codehaus.jackson</groupId>
