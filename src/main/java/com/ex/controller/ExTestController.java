@@ -20,6 +20,6 @@ public class ExTestController {
     @GetMapping("/hello")
     public String hello(Model model){
         model.addAttribute("message","hello");
-        return "hello";
+        return "backsta";
     }
 }

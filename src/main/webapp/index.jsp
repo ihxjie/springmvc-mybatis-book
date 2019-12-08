@@ -41,8 +41,8 @@
                     type:"post",
                     success:function(data){
                         //data服务器端响应的json的数据，进行解析
-                        alert(data);
-                        alert(data.userId);
+                        alert(data+data.userId);
+                        alert();
                         alert(data.userEmail);
                         alert(data.userPassword);
                     },
