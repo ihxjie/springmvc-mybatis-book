@@ -51,7 +51,7 @@
         <c:if test="${pageInfo.pageNum == i}">
          <li class="active"> <a href="list?pageNo=${i}">${i}</a> </li>
     </c:if><c:if test="${pageInfo.pageNum != i}">
-        <li> <a href="list?pageNo=${i}">${i}</a> </li>
+        <li> <a href="pr?pageNo=${i}">${i}</a> </li>
     </c:if>
     </c:forEach>
         <c:if test="${pageInfo.hasNextPage}">

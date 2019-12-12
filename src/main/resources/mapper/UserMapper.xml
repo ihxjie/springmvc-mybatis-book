@@ -6,6 +6,10 @@
     <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
     <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
   </resultMap>
+  <insert id="insertUser" parameterType="com.ex.model.User">
+    INSERT INTO user(user_email,user_password)
+    VALUES(#{userEmail},#{userPassword})
+  </insert>
   <sql id="Base_Column_List">
     user_id, user_email, user_password
   </sql>

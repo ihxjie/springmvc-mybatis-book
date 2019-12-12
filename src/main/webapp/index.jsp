@@ -55,5 +55,7 @@
     <input type="text" name="userPassword" id="userPassword">
     <button id="btn">发送ajax</button>
 </form>
+<a href="product/jsp">注册网页</a>
+<a href="login">登陆网页</a>
 </body>
 </html>

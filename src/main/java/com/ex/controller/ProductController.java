@@ -53,12 +53,12 @@ public class ProductController {
 
     @GetMapping("/list")
     public String pageList(ModelMap map,@RequestParam(defaultValue = "1",required = true,value = "pageNo")Integer pageNo){
-        Integer pageSize = 5;
+        Integer pageSize = 9;
         PageHelper.startPage(pageNo, pageSize);
         List<Product> productsList = productService.findAllProduct();
         PageInfo<Product> pageInfo = new PageInfo<Product>(productsList);
         map.addAttribute("pageInfo", pageInfo);
-        return "list";
+        return "product";
     }
 
     @RequestMapping("/testAjax")
@@ -68,6 +68,12 @@ public class ProductController {
         System.out.println(user);
         return user;
     }
+
+    @RequestMapping("/jsp")
+    public String jsp(){
+        return "regist";
+    }
+
     @GetMapping(value = "/test",produces = "text/plain;charset=utf-8")
     @ResponseBody
     public String getProduct(){
@@ -79,5 +85,6 @@ public class ProductController {
         return JSON.toJSONString(pageInfo);
 
     }
+
 
 }

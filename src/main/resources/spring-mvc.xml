@@ -18,7 +18,8 @@
     <mvc:default-servlet-handler/>
     <!--配置路径映射，访问静态文件-->
     <mvc:resources mapping="/product/assets/**" location="/assets/"/>
-    
+    <mvc:resources mapping="/user/assets/**" location="/assets/"/>
+
     <!--设置配置方案-->
     <mvc:annotation-driven/>
     <!--配置jsp 显示viewResolver(视图解析器)-->
@@ -28,4 +29,5 @@
         <property name="suffix" value=".jsp"/>
     </bean>
     <!-- 设置静态资源不过滤 -->
+<!--    <mvc:resources location="/assets/" mapping="/assets/**"/>&lt;!&ndash; 样式 &ndash;&gt;-->
 </beans>

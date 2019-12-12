@@ -13,7 +13,9 @@ public interface UserMapper {
 
     List<User> selectUserByEmail(String keyword);
 
-    /*int updateByPrimaryKeySelective(User record);
+    int updateByPrimaryKeySelective(User record);
 
-    int updateByPrimaryKey(User record);*/
+    int updateByPrimaryKey(User record);
+
+    int insertUser(User user);
 }

@@ -21,4 +21,10 @@ public class ExTestController {
         model.addAttribute("message","hello");
         return "backstageSys";
     }
+
+    @RequestMapping("/login")
+    public String jsp(){
+        return "login";
+    }
+
 }

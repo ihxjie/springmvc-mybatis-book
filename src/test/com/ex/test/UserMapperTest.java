@@ -13,6 +13,10 @@ public class UserMapperTest extends BaseJunit4Test {
 
     @Test
     public void testSelectUserByEmail(){
-        List<User> userList = userMapper.selectUserByEmail("@");
+        List<User> userList = userMapper.selectUserByEmail("test@email.com");
+        for (User u : userList
+             ) {
+            System.out.println(u);
+        }
     }
 }
