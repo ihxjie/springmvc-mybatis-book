@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
+    <title>商品管理</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
@@ -27,7 +27,7 @@
                 <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                     <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                         <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                        <div class="sidebar-brand-text mx-3"><span>Brand</span></div>
+                        <div class="sidebar-brand-text mx-3"><span>电子商务平台</span></div>
                     </a>
                     <ul class="nav navbar-nav flex-nowrap ml-auto">
                         <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
@@ -39,7 +39,6 @@
                                 </form>
                             </div>
                         </li>
-                        <div class="d-none d-sm-block topbar-divider"></div>
                         <li class="nav-item dropdown no-arrow" role="presentation">
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Valerie Luna</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
                                 <div
@@ -53,17 +52,16 @@
                 </div>
             </nav>
             <div class="container-fluid">
-                <h3 class="text-dark mb-4">Team</h3>
+                <h3 class="text-dark mb-4">控制台</h3>
                 <div class="row">
                     <div class="col-md-6 col-xl-3 mb-4">
                         <div class="card shadow border-left-primary py-2">
                             <div class="card-body">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Earnings (monthly)</span></div>
-                                        <div class="text-dark font-weight-bold h5 mb-0"><span>$40,000</span></div>
+                                        <div class="text-primary font-weight-bold h5 mb-0"><span>商品管理</span></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-primary"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -73,8 +71,7 @@
                             <div class="card-body">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
-                                        <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Earnings (annual)</span></div>
-                                        <div class="text-dark font-weight-bold h5 mb-0"><span>$215,000</span></div>
+                                        <div class="text-success font-weight-bold h5 mb-0"><span>类型管理</span></div>
                                     </div>
                                     <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
                                 </div>
@@ -86,17 +83,7 @@
                             <div class="card-body">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
-                                        <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span>Tasks</span></div>
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span>50%</span></div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-info" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"><span class="sr-only">50%</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div class="text-info font-weight-bold h5 mb-0 mr-3"><span>用户管理</span></div>
                                     </div>
                                     <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
                                 </div>
@@ -108,8 +95,7 @@
                             <div class="card-body">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
-                                        <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Pending Requests</span></div>
-                                        <div class="text-dark font-weight-bold h5 mb-0"><span>18</span></div>
+                                        <div class="text-warning font-weight-bold h5 mb-0"><span>订单管理</span></div>
                                     </div>
                                     <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
                                 </div>
@@ -117,14 +103,13 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-3 mb-4">
-                        <div class="card shadow border-left-warning py-2">
+                        <div class="card shadow border-left-danger py-2">
                             <div class="card-body">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Earnings (monthly)</span></div>
-                                        <div class="text-dark font-weight-bold h5 mb-0"><span>$40,000</span></div>
+                                        <div class="text-danger font-weight-bold h5 mb-0"><span>公告管理</span></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                    <div class="col-auto"><i class="fas fa-calculator fa-2x text-gray-300"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -132,12 +117,19 @@
                 </div>
                 <div class="card shadow">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 font-weight-bold">Product Info</p>
+                        <p class="text-primary m-0 font-weight-bold">商品信息</p>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 text-nowrap">
-                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
+                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                    <label>每一页的条数&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm" id="pageSize">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option></select>&nbsp
+                                    </label>
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
@@ -153,43 +145,46 @@
                                     <th>产品库存</th>
                                     <th>产品图片</th>
                                     <th>产品类别</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>33</td>
-                                    <td>2008/11/28</td>
-                                    <td>$162,700</td>
-                                </tr>
+                                <%--ajax填入--%>
 
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <td><strong>Name</strong></td>
-                                    <td><strong>Position</strong></td>
-                                    <td><strong>Office</strong></td>
-                                    <td><strong>Age</strong></td>
-                                    <td><strong>Start date</strong></td>
-                                    <td><strong>Salary</strong></td>
+                                    <td><strong>产品名称</strong></td>
+                                    <td><strong>产品原价</strong></td>
+                                    <td><strong>产品现价</strong></td>
+                                    <td><strong>产品库存</strong></td>
+                                    <td><strong>产品图片</strong></td>
+                                    <td><strong>产品类别</strong></td>
+                                    <td><strong>操作</strong></td>
                                 </tr>
                                 </tfoot>
                             </table>
                         </div>
                         <div class="row">
                             <div class="col-md-6 align-self-center">
-                                <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                                <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite"></p>
                             </div>
                             <div class="col-md-6">
                                 <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                     <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                        <li id="previous-page" class="page-item disabled">
+                                            <a class="page-link" onclick="getPreviousPage()" aria-label="Previous" style="cursor: pointer">
+                                                <span aria-hidden="true">«</span>
+                                            </a>
+                                        </li>
+                                        <li id="page-num" class="page-item active">
+                                            <a class="page-link" href="#">1</a>
+                                        </li>
+                                        <li id="next-page" class="page-item">
+                                            <a class="page-link" onclick="getNextPage()" aria-label="Next" style="cursor: pointer">
+                                                <span aria-hidden="true">»</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

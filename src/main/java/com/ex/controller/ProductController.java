@@ -1,6 +1,6 @@
 package com.ex.controller;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.ex.model.Product;
 import com.ex.service.ProductService;
 import com.github.pagehelper.PageHelper;
@@ -9,9 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
+
+import static com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue;
 
 @Controller
 @RequestMapping("/product")
@@ -32,15 +35,13 @@ public class ProductController {
         return "hello";
     }
 
-    @GetMapping("/findProductById/{product_id}")
-    @ResponseBody
-    public Product getProductById(@PathVariable Integer product_id){
-        return productService.findProductById(product_id);
-    }
+    @GetMapping("/{product_id}")
+    public ModelAndView getProductById(@PathVariable Integer product_id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("product",productService.findProductById(product_id));
+        modelAndView.setViewName("adminProductSingle");
+        return modelAndView;
 
-    @GetMapping("/sayHello")
-    public String sayHello(){
-        return "backstageSys";
     }
 
     @PostMapping("/insert")
@@ -48,16 +49,15 @@ public class ProductController {
         productService.addProduct(product);
         return "hello";
     }
-    @GetMapping(value = "/test",produces = "text/plain;charset=utf-8")
-    @ResponseBody
-    public String getProduct(){
-        PageHelper.startPage(1,3);
-        List<Product> productList = productService.findAllProduct();
-        System.out.println("6");
-        PageInfo pageInfo = new PageInfo(productList);
-        System.out.println(JSON.toJSONString(pageInfo));
-        return JSON.toJSONString(pageInfo);
 
+    @GetMapping(value = "/getProducts",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public String getProduct(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum, @RequestParam(defaultValue = "10",value = "pageSize") int pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        List<Product> productList = productService.findAllProduct();
+        PageInfo pageInfo = new PageInfo(productList);
+        System.out.println(JSONObject.toJSONString(pageInfo, WriteMapNullValue));
+        return JSONObject.toJSONString(pageInfo, WriteMapNullValue);
     }
 
 }
