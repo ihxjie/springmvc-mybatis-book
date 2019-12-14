@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- enctype="multipart/form-data" 以二进制提交 -->
-<form action="${pageContext.request.contextPath}/file/fileUpload" method="post" enctype="multipart/form-data">
+<form action="${pageContext.request.contextPath}/fileUpload" method="post" enctype="multipart/form-data">
     <!-- multiple="multiple" 设置可以同时选择多个文件 -->
     <input type="file" name="uploadFile" id="uploadFile" multiple="multiple" />
     <input type="submit" value="提交">

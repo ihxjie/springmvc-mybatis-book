@@ -4,18 +4,22 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URLEncoder;
 import java.util.Calendar;
 
 @Controller
-@RequestMapping("/file")
 public class FileController {
 
     Logger logger = LogManager.getLogger(FileController.class);
@@ -23,30 +27,54 @@ public class FileController {
     @Resource
     ServletContext context;
 
-    @RequestMapping(value = "/fileUpload")
-    public void fileUpload(@RequestParam("uploadFile") MultipartFile[] file, HttpServletRequest request) throws Exception {
-
+    @PostMapping(value = "/fileUpload",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public String fileUpload(@RequestParam("uploadFile") MultipartFile[] file, HttpServletRequest request) throws Exception {
+        String path = "";
         for (MultipartFile multipartFile : file) {
             //判断文件是否为空
             if (!multipartFile.isEmpty()) {
 
                 //获得原文件名
                 String fileName = multipartFile.getOriginalFilename();
-                logger.info(fileName);
-                //File.separator表示在 UNIX 系统上，此字段的值为 /；在 Windows 系统上，它为 \，如：C:\tmp\test.txt和tmp/test.txt
-                String filePath = context.getRealPath("") + "upload" + File.separator;
-                //新建upload文件夹
-                File upload = new File(filePath);
-                if (!upload.exists()){
-                    upload.mkdirs();
+                String realPath = context.getRealPath("");
+                path = "upload" + File.separator;
+                Calendar ca = Calendar.getInstance();
+                path += ("" + ca.get(Calendar.YEAR) + (ca.get(Calendar.MONTH) + 1) + ca.get(Calendar.DATE));
+                //新建日期文件夹
+                File dateDir = new File(realPath + path);
+                if (!dateDir.exists()){
+                    dateDir.mkdirs();
                 }
-                filePath += fileName;
+                path += File.separator + System.currentTimeMillis() + "_" + fileName;
                 // 复制本地文件到服务器
-                FileCopyUtils.copy(multipartFile.getBytes(), new File(filePath));
+                FileCopyUtils.copy(multipartFile.getBytes(), new File(realPath + path));
 
             } else {
                 logger.error("文件上传异常");
             }
         }
+        return path;
+    }
+    @RequestMapping("fileDownload")
+    public void fileDownload(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String file = request.getSession().getServletContext().getRealPath("upload") + File.separator;
+        //获取输入流
+        InputStream bis = new BufferedInputStream(new FileInputStream(new File(file)));
+        //假如以中文名下载的话
+        String filename = "下载文件.txt";
+        //转码，免得文件名中文乱码
+        filename = URLEncoder.encode(filename,"UTF-8");
+        //设置文件下载头
+        response.addHeader("Content-Disposition", "attachment;filename=" + filename);
+        //1.设置文件ContentType类型，这样设置，会自动判断下载文件类型
+        response.setContentType("multipart/form-data");
+        BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream());
+        int len = 0;
+        while((len = bis.read()) != -1){
+            out.write(len);
+            out.flush();
+        }
+        out.close();
     }
 }

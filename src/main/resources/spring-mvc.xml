@@ -18,7 +18,8 @@
     <mvc:default-servlet-handler/>
     <!--配置路径映射，访问静态文件-->
     <mvc:resources mapping="/product/assets/**" location="/assets/"/>
-    
+    <mvc:resources mapping="/product/upload/**" location="/upload/"/>
+
     <!--设置配置方案-->
     <mvc:annotation-driven/>
     <!--配置jsp 显示viewResolver(视图解析器)-->

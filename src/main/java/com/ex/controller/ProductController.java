@@ -7,11 +7,19 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.util.Calendar;
 import java.util.List;
 
 import static com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue;
@@ -49,6 +57,11 @@ public class ProductController {
         productService.addProduct(product);
         return "hello";
     }
+    @PostMapping("update")
+    public String update(@ModelAttribute Product product){
+        productService.updProduct(product);
+        return "redirect:/backstageSys";
+    }
 
     @GetMapping(value = "/getProducts",produces = "text/plain;charset=utf-8")
     @ResponseBody
@@ -58,6 +71,10 @@ public class ProductController {
         PageInfo pageInfo = new PageInfo(productList);
         System.out.println(JSONObject.toJSONString(pageInfo, WriteMapNullValue));
         return JSONObject.toJSONString(pageInfo, WriteMapNullValue);
+    }
+    @GetMapping("/handle")
+    public String handle(){
+        return "fileUpload";
     }
 
 }

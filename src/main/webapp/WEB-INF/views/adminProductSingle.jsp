@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <script type="text/javascript">
+        var domainUrl = "${pageContext.request.contextPath}";
+    </script>
 </head>
 
 <body id="page-top">
@@ -54,9 +57,19 @@
                 <h3 class="text-dark mb-4">Profile</h3>
                 <div class="row mb-3">
                     <div class="col-lg-3">
-                        <div class="card mb-3">
-                            <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="assets/img/dogs/image2.jpeg" width="160" height="160" alt="">
-                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">更新图片</button></div>
+                        <div class="card shadow mb-3">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 font-weight-bold">商品图片</p>
+                            </div>
+                            <div class="card-body text-center shadow">
+                                <img src="${product.productPicture}" class="rounded-circle mb-3 mt-4" width="160" height="160" alt="商品图片" id="picture">
+                                <hr>
+                                <div class="mb-3">
+                                    <form id="picUpload" enctype="multipart/form-data">
+                                        <input name="uploadFile" type="file" id="uploadFile" onchange="picUpload()">
+                                    </form>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -68,32 +81,43 @@
                                         <p class="text-primary m-0 font-weight-bold">商品详细信息</p>
                                     </div>
                                     <div class="card-body">
-                                        <form>
+                                        <form action="${pageContext.request.contextPath}/product/update" method="post">
                                             <div class="form-row">
                                                 <div class="col">
+
+                                                    <input class="form-control" type="hidden" name="productId" value="${product.productId}">
+                                                    <input class="form-control" type="hidden" name="productPicture" id="productPicture" value="${product.productPicture}">
+
                                                     <div class="form-group"><strong>商品名称</strong>
                                                         <input class="form-control" type="text" placeholder="商品名称" name="productName" value="${product.productName}">
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="form-row">
                                                 <div class="col">
                                                     <div class="form-group"><strong>商品原价</strong>
                                                         <input class="form-control" type="text" placeholder="商品原价" name="productOriginalPrice" value="${product.productOriginalPrice}">
                                                     </div>
                                                 </div>
+                                                <div class="col">
+                                                    <div class="form-group"><strong>商品现价</strong>
+                                                        <input class="form-control" type="text" placeholder="商品现价" name="productCurrentPrice" value="${product.productCurrentPrice}">
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <div class="form-group"><strong>Username</strong>
-                                                        <input class="form-control" type="text" placeholder="user.name" name="username">
+                                                    <div class="form-group"><strong>库存</strong>
+                                                        <input class="form-control" type="text" placeholder="库存" name="productStock" value="${product.productStock}">
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="form-group"><strong>Username</strong>
-                                                        <input class="form-control" type="text" placeholder="user.name" name="username">
+                                                    <div class="form-group"><strong>类型</strong>
+                                                        <input class="form-control" type="text" placeholder="类型" name="typeId" value="${product.typeId}">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
+                                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">提交更改</button></div>
                                         </form>
                                     </div>
                                 </div>
@@ -115,6 +139,7 @@
 <script src="assets/js/bs-init.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 <script src="assets/js/theme.js"></script>
+
 </body>
 
 </html>
