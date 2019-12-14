@@ -17,5 +17,6 @@
     <input type="file" name="uploadFile" id="uploadFile" multiple="multiple" />
     <input type="submit" value="提交">
 </form>
+<a href="${pageContext.request.contextPath}/fileDownload?filename=小米MIX3.jpg">小米MIX3.jpg</a>
 </body>
 </html>

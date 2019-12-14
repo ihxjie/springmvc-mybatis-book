@@ -56,23 +56,22 @@ public class FileController {
         }
         return path;
     }
-    @RequestMapping("fileDownload")
-    public void fileDownload(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String file = request.getSession().getServletContext().getRealPath("upload") + File.separator;
-        //获取输入流
-        InputStream bis = new BufferedInputStream(new FileInputStream(new File(file)));
-        //假如以中文名下载的话
-        String filename = "下载文件.txt";
+    @RequestMapping("/fileDownload")
+    public void fileDownload(@RequestParam(value="filename")String filename,HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String filePath = request.getSession().getServletContext().getRealPath("upload") + File.separator +filename;
+        //logger.info(filePath);
         //转码，免得文件名中文乱码
         filename = URLEncoder.encode(filename,"UTF-8");
         //设置文件下载头
         response.addHeader("Content-Disposition", "attachment;filename=" + filename);
         //1.设置文件ContentType类型，这样设置，会自动判断下载文件类型
         response.setContentType("multipart/form-data");
-        BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream());
+        FileInputStream in = new FileInputStream(filePath);
+        OutputStream out = response.getOutputStream();
+        byte[] buffer = new byte[1024];
         int len = 0;
-        while((len = bis.read()) != -1){
-            out.write(len);
+        while((len = in.read(buffer)) > 0){
+            out.write(buffer,0,len);
             out.flush();
         }
         out.close();

@@ -68,7 +68,6 @@
                                     <form id="picUpload" enctype="multipart/form-data">
                                         <input name="uploadFile" type="file" id="uploadFile" onchange="picUpload()">
                                     </form>
-
                                 </div>
                             </div>
                         </div>
