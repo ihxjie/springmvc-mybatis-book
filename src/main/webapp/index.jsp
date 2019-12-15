@@ -1,7 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@taglib prefix= "form" uri= "http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Title</title>
@@ -81,58 +79,7 @@
     birth：<input type="text" name="birth"><errors path="birth"></errors>
     <input type="submit" value="提交" ><br>
 </form>
-<%--@elvariable id="JSR303Test" type="com.ex.model.JSR303Test"--%>
-<form:form method="post" modelAttribute="JSR303Test">
-    <form:errors path="*" cssClass="error" />
-    <table>
-        <tr>
-            <td>Name</td>
-            <td><form:input path="name" />
-            </td>
-            <td><form:errors path="name" cssClass="error" />
-            </td>
-        </tr>
-        <tr>
-            <td>email</td>
-            <td><form:input path="age" />
-            </td>
-            <td><form:errors path="age" cssClass="error" />
-            </td>
-        </tr>
 
-        <tr>
-            <td colspan="3"><input type="submit" />
-            </td>
-        </tr>
-    </table>
-</form:form>
 
-<%--<form:form ModelAttribute="JSR303Test" method="post" action="test/stu" >
-    <table>
-        <tr>
-            <td>name:</td>
-            <td><form:input path="name"/></td>
-            <td><form:errors path="name" cssStyle= "color:red"/></td>
-        </tr>
-        <tr>
-            <td>age:</td>
-            <td><form:input path="age"/></td>
-            <td><form:errors path="age" cssStyle= "color:red"/></td>
-        </tr>
-        <tr>
-            <td>gender:</td>
-            <td><form:input path="gender"/></td>
-            <td><form:errors path="gender" cssStyle= "color:red"/></td>
-        </tr>
-        <tr>
-            <td>birth:</td>
-            <td><form:input path="birth"/></td>
-            <td><form:errors path="birth" cssStyle= "color:red"/></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="提交"/></td>
-        </tr>
-    </table>
-</form:form>--%>
 </body>
 </html>

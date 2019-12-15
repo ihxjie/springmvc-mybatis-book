@@ -40,8 +40,6 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />
     </bean>
-
-    <bean class="com.ex.model.JSR303Test" id="jsr303Test"/>
     <!-- 设置静态资源不过滤 -->
 <!--    <mvc:resources location="/assets/" mapping="/assets/**"/>&lt;!&ndash; 样式 &ndash;&gt;-->
 </beans>
