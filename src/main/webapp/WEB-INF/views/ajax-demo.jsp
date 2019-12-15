@@ -17,6 +17,7 @@
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
 <script>
     function test(){
+        console.log("123");
         $.ajax({
             url:"test",
             type:"get",
@@ -37,6 +38,6 @@
         })
     }
 </script>
-
+<a href="" onclick="test()">123</a>
 </body>
 </html>

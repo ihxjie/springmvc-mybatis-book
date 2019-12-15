@@ -13,6 +13,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -41,8 +42,9 @@ public class ProductController {
     }
 
     @GetMapping("/sayHello")
-    public void sayHello(){
+    public String sayHello(){
         System.out.println("Hellow");
+        return "ajax-demo";
     }
 
     @PostMapping("/insert")
@@ -86,5 +88,11 @@ public class ProductController {
 
     }
 
-
+    @GetMapping("/toSingle/{pid}")
+    public String toProduct(@PathVariable(name = "pid")Integer productId, HttpSession session){
+        Product product = productService.findProductById(productId);
+        session.setAttribute("pid",productId);
+        session.setAttribute("product",product);
+        return "single";
+    }
 }

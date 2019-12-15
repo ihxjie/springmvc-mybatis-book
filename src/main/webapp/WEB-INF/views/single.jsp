@@ -321,13 +321,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-5 grid">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li data-thumb="images/si.jpg">
+                        <li data-thumb="assets/images/si.jpg">
                             <div class="thumb-image"> <img src="assets/images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
-                        <li data-thumb="images/si1.jpg">
+                        <li data-thumb="assets/images/si1.jpg">
                             <div class="thumb-image"> <img src="assets/images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
-                        <li data-thumb="images/si2.jpg">
+                        <li data-thumb="assets/images/si2.jpg">
                             <div class="thumb-image"> <img src="assets/images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
                     </ul>
@@ -335,10 +335,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="col-md-7 single-top-in">
                 <div class="span_2_of_a1 simpleCart_shelfItem">
-                    <h3>Nam liber tempor cum</h3>
+                    <h3>${product.productName}</h3>
                     <p class="in-para"> There are many variations of passages of Lorem Ipsum.</p>
                     <div class="price_single">
-                        <span class="reducedfrom item_price">$140.00</span>
+                        <span class="reducedfrom item_price">￥${product.productCurrentPrice}</span>
                         <a href="#">click for offer</a>
                         <div class="clearfix"></div>
                     </div>
@@ -353,7 +353,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="quantity">
                         <div class="quantity-select">
                             <div class="entry value-minus">&nbsp;</div>
-                            <div class="entry value"><span>1</span></div>
+                            <div class="entry value"><span id="quantity">1</span></div>
                             <div class="entry value-plus active">&nbsp;</div>
                         </div>
                     </div>
@@ -370,8 +370,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         });
                     </script>
                     <!--quantity-->
+                    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+                    <script>
+                        addcart = function(){
+                            var num = document.getElementById("quantity").innerText;
+                            var uid = "${uid}";
+                            var pid = "${pid}";
+                            console.log(num);
+                            // alert(JSON.stringify(arry));
+                            $.ajax({
+                                //json格式
+                                url:"cart/postcart",
+                                contentType:"application/json;charset=UTF-8",
+                                data:JSON.stringify({
+                                    "purchaseQuantity":num,
+                                    "userId":uid,
+                                    "productId":pid
+                                }),
+                                dataType:"text",
+                                type:"post",
+                                success:function(data){
+                                    data = data.toString();
+                                    if (data == "success")
+                                        alert("添加成功");
+                                    else
+                                        alert("添加失败");
+                                },
+                                error:function (data) {
+                                    alert("失败");
+                                }
+                            });
+                        }
 
-                    <a href="#" class="add-to item_add hvr-skew-backward">Add to cart</a>
+                        addfollow = function(){
+                            var uid = "${uid}";
+                            var pid = "${pid}";
+                            // alert(JSON.stringify(arry));
+                            $.ajax({
+                                //json格式
+                                url:"follow/postfollow",
+                                contentType:"application/json;charset=UTF-8",
+                                data:JSON.stringify({
+                                    "userId":uid,
+                                    "productId":pid
+                                }),
+                                dataType:"text",
+                                type:"post",
+                                success:function(data){
+                                    data = data.toString();
+                                    if (data == "success")
+                                        alert("添加成功");
+                                    else
+                                        alert("添加失败");
+                                },
+                                error:function (data) {
+                                    alert("失败");
+                                }
+                            });
+                        }
+                    </script>
+                    <a onclick="addfollow();" class="add-to item_add hvr-skew-backward">Add to follow</a>
+                    <a onclick="addcart();" class="add-to item_add hvr-skew-backward">Add to cart</a>
                     <div class="clearfix"> </div>
                 </div>
 

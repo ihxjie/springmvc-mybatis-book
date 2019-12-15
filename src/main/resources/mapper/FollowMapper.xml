@@ -21,9 +21,9 @@
     where follow_id = #{followId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ex.model.Follow">
-    insert into follow (follow_id, follow_time, user_id, 
+    insert into follow (follow_id, user_id,
       product_id)
-    values (#{followId,jdbcType=INTEGER}, #{followTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER}, 
+    values (#{followId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
       #{productId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ex.model.Follow">

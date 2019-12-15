@@ -56,6 +56,7 @@ public class UserController {
         System.out.println(list.size());
         if(list.size()!=0 && list.get(0).getUserPassword().equals(user.getUserPassword())){
             System.out.println("22");
+            session.setAttribute("uid",list.get(0).getUserId());
             session.setAttribute("eamil",user.getUserEmail());
             return "success";
         }else{
@@ -67,5 +68,10 @@ public class UserController {
     @RequestMapping("/toProduct")
     public String toProduct(){
         return "product";
+    }
+
+    @RequestMapping("/tologin")
+    public String tologin(){
+        return "login";
     }
 }

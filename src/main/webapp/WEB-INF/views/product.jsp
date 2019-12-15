@@ -10,6 +10,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    %>
+    <base href="<%=basePath%>">
     <title>product</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- Custom Theme files -->
@@ -50,11 +55,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
     <link href="assets/css/form.css" rel="stylesheet" type="text/css" media="all" />
-    <%
-        String path = request.getContextPath();
-        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-    %>
-    <base href="<%=basePath%>">
     <!---//End-rate---->
 </head>
 <body>
@@ -335,10 +335,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="women">
                                 <div class="women-top">
                                     <span>Special Offer</span>
-                                    <h6><a href="single.html">${product.productName}</a></h6>
+                                    <h6><a href="product/toSingle/${product.productId}">${product.productName}</a></h6>
                                 </div>
                                 <div class="img item_add">
-                                    <a href="#"><img src="assets/images/ca.png" alt=""></a>
+                                    <a href="product/toSingle/${product.productId}"><img src="assets/images/ca.png" alt=""></a>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
