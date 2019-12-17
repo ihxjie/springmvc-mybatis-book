@@ -79,7 +79,5 @@
     birth：<input type="text" name="birth"><errors path="birth"></errors>
     <input type="submit" value="提交" ><br>
 </form>
-
-
 </body>
 </html>

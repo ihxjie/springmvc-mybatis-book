@@ -1,14 +1,18 @@
 package com.ex.controller;
 
 import com.ex.model.Cart;
+import com.ex.model.CartList;
 import com.ex.model.User;
 import com.ex.service.CartService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/cart")
@@ -26,5 +30,26 @@ public class CartController {
         else {
             return "success";
         }
+    }
+
+    @RequestMapping("/getcart")
+    public String getPostcat(HttpSession session){
+        Integer uid = (Integer) session.getAttribute("uid");
+        System.out.println(uid);
+        List<CartList> cartList = cartService.selectCartListByUserId(uid);
+        for(CartList cart : cartList){
+            System.out.println(cart);
+        }
+        session.setAttribute("cartList",cartList);
+        System.out.println(cartList.size());
+        return "checkout";
+    }
+
+    @RequestMapping("/deletecart/{cid}")
+    public String deleteCart(@PathVariable(name = "cid")Integer cartid){
+        System.out.println(cartid);
+        int num = cartService.deleteByPrimaryKey(cartid);
+        System.out.println(num);
+        return "redirect:/cart/getcart";
     }
 }

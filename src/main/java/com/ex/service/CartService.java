@@ -1,6 +1,9 @@
 package com.ex.service;
 
 import com.ex.model.Cart;
+import com.ex.model.CartList;
+
+import java.util.List;
 
 public interface CartService {
     int deleteByPrimaryKey(Integer cartId);
@@ -14,4 +17,8 @@ public interface CartService {
     int updateByPrimaryKeySelective(Cart record);
 
     int updateByPrimaryKey(Cart record);
+
+    List<Cart> selectByPrimaryUid(Integer uid);
+
+    List<CartList> selectCartListByUserId(Integer uid);
 }

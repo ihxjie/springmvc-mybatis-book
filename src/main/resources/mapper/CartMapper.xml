@@ -7,14 +7,42 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
   </resultMap>
+  <resultMap id="CartList" type="com.ex.model.CartList">
+    <id column="cart_id" jdbcType="INTEGER" property="cartId" />
+    <result column="purchase_quantity" jdbcType="VARCHAR" property="purchaseQuantity" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_original_price" jdbcType="DECIMAL" property="productOriginalPrice" />
+    <result column="product_current_price" jdbcType="DECIMAL" property="productCurrentPrice" />
+    <result column="product_stock" jdbcType="VARCHAR" property="productStock" />
+    <result column="product_picture" jdbcType="VARCHAR" property="productPicture" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+  </resultMap>
   <sql id="Base_Column_List">
     cart_id, purchase_quantity, user_id, product_id
   </sql>
+  <select id="selectCartListByUserId" parameterType="java.lang.Integer" resultMap="CartList">
+    SELECT
+      *
+    FROM
+      cart,
+      product
+    WHERE
+      cart.product_id = product.product_id
+      AND cart.user_id = #{uid,jdbcType=INTEGER}
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from cart
     where cart_id = #{cartId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryUid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cart
+    where user_id = #{userId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from cart

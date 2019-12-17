@@ -1,6 +1,8 @@
 package com.ex.test;
 
+import com.ex.dao.CartMapper;
 import com.ex.dao.UserMapper;
+import com.ex.model.Cart;
 import com.ex.model.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +13,14 @@ public class UserMapperTest extends BaseJunit4Test {
     @Autowired
     UserMapper userMapper;
 
+
     @Test
     public void testSelectUserByEmail(){
-        List<User> userList = userMapper.selectUserByEmail("test@email.com");
+        List<User> userList = userMapper.selectUserByEmail("@");
         for (User u : userList
              ) {
             System.out.println(u);
         }
     }
+
 }

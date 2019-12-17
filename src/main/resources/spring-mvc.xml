@@ -20,7 +20,7 @@
     <mvc:resources mapping="/product/assets/**" location="/assets/"/>
     <mvc:resources mapping="/user/assets/**" location="/assets/"/>
     <mvc:resources mapping="/product/toSingle/assets/**" location="/assets/"/>
-    <mvc:resources mapping="/checkout/assets/**" location="/assets/"/>
+    <mvc:resources mapping="/cart/assets/**" location="/assets/"/>
     <mvc:resources mapping="/Test/assets/**" location="/assets/"/>
 
     <!--设置配置方案-->

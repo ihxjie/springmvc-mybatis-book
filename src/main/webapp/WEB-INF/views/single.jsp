@@ -353,7 +353,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="quantity">
                         <div class="quantity-select">
                             <div class="entry value-minus">&nbsp;</div>
-                            <div class="entry value"><span id="quantity">1</span></div>
+                            <div class="entry value"  id="quantity"><span>1</span></div>
                             <div class="entry value-plus active">&nbsp;</div>
                         </div>
                     </div>
