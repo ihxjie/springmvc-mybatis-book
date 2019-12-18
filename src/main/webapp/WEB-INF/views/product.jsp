@@ -58,7 +58,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!---//End-rate---->
 </head>
 <body>
-<span>${eamil}</span>
 <!--header-->
 <div class="header">
     <div class="container">
@@ -72,9 +71,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <div class="col-sm-5 col-md-offset-2  header-login">
                 <ul >
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a href="user/tologin">Login</a></li>
+                    <li><a href="product/jsp">Register</a></li>
+                    <li><a href="cart/getcart">Checkout</a></li>
+                    <li><a href="#">${email},欢迎你！</a></li>
                 </ul>
             </div>
 
@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav nav_1">
-                            <li><a class="color" href="index.html">Home</a></li>
+                            <li><a class="color" href="product/list/null">Home</a></li>
 
                             <li class="dropdown mega-dropdown active">
                                 <a class="color1" href="#" class="dropdown-toggle" data-toggle="dropdown">Women<span class="caret"></span></a>
@@ -246,7 +246,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a class="color3" href="product.html">Sale</a></li>
                             <li><a class="color4" href="404.html">About</a></li>
                             <li><a class="color5" href="typo.html">Short Codes</a></li>
-                            <li ><a class="color6" href="contact.html">Contact</a></li>
+                            <li ><a class="color6" href="order/getorder">Order</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
 
@@ -255,20 +255,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-sm-2 search-right">
                 <ul class="heart">
                     <li>
-                        <a href="wishlist.html" >
+                        <a href="follow/getfollow" >
                             <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                         </a></li>
                     <li><a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i></a></li>
+                    <li>
+                        <a href="cart/getcart">
+                            <img src="assets/images/cart.png" alt=""/>
+                        </a>
+                    </li>
                 </ul>
-                <div class="cart box_1">
-                    <a href="cart/getcart">
-                        <h3> <div class="total">
-                            <span class="simpleCart_total"></span></div>
-                            <img src="assets/images/cart.png" alt=""/></h3>
-                    </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
-                </div>
                 <div class="clearfix"> </div>
 
                 <!----->
@@ -277,11 +274,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <link href="assets/css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
                 <script src="assets/js/jquery.magnific-popup.js" type="text/javascript"></script>
                 <!---//pop-up-box---->
+                <script>
+                    search = function(){
+                        var contents = document.getElementById("contents").value;
+                        console.log(contents);
+                        window.location.href='product/list/' + contents;
+                    }
+                </script>
                 <div id="small-dialog" class="mfp-hide">
                     <div class="login-search">
                         <div class="login">
-                            <input type="submit" value="">
-                            <input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
+                            <input type="submit" value="" onclick="search();">
+                            <input id="contents" type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
                         </div>
                         <p>Shopin</p>
                     </div>

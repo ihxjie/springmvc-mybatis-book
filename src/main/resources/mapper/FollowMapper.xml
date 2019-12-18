@@ -7,9 +7,31 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
   </resultMap>
+  <resultMap id="FollowList" type="com.ex.model.FollowList">
+    <id column="follow_id" jdbcType="INTEGER" property="followId" />
+    <result column="follow_time" jdbcType="TIMESTAMP" property="followTime" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_original_price" jdbcType="DECIMAL" property="productOriginalPrice" />
+    <result column="product_current_price" jdbcType="DECIMAL" property="productCurrentPrice" />
+    <result column="product_stock" jdbcType="VARCHAR" property="productStock" />
+    <result column="product_picture" jdbcType="VARCHAR" property="productPicture" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+  </resultMap>
   <sql id="Base_Column_List">
     follow_id, follow_time, user_id, product_id
   </sql>
+  <select id="selectfollowListByUserId" parameterType="java.lang.Integer" resultMap="FollowList">
+    SELECT
+      *
+    FROM
+      follow,
+      product
+    WHERE
+      follow.product_id = product.product_id
+      AND follow.user_id = #{uid,jdbcType=INTEGER}
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

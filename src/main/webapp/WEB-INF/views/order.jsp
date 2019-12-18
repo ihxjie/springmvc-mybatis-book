@@ -2,15 +2,16 @@
   Created by IntelliJ IDEA.
   User: Captivate
   Date: 2019/12/9
-  Time: 21:35
+  Time: 21:46
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Checkout</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- Custom Theme files -->
     <!--theme-style-->
@@ -314,153 +315,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--banner-->
 <div class="banner-top">
     <div class="container">
-        <h1>Register</h1>
+        <h1>Order</h1>
         <em></em>
-        <h2><a href="index.html">Home</a><label>/</label>Register</a></h2>
+        <h2><a href="index.html">Home</a><label>/</label>Order</a></h2>
     </div>
 </div>
 <!--login-->
-<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
-<%--ajax验证账号是否合法--%>
-<script type="text/javascript">
-    $(function () {
-        $("#email").blur(function () {
-            var getEmail = document.getElementById("email");
-            var getEmailmsg = document.getElementById("emailmsg");
-            var strEmail = getEmail.value;
-            if(strEmail == null || strEmail.trim().length==0){
-                $("#ok").hide();
-                $("#remove").show();
-                getEmailmsg.style.color="red";
-                getEmailmsg.innerHTML="邮箱不能为空";
-            }else{
-                var reg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
-                if(!reg.test(strEmail)){
-                    console.log(strEmail);
-                    $("#ok").hide();
-                    $("#remove").show();
-                    getEmailmsg.style.color="red";
-                    getEmailmsg.innerHTML="邮箱格式不正确";
-                }else{
-                    console.log("123");
-                    $.ajax({
-                        url:"user/checkEmailUnique",
-                        contentType:"application/json;charset=UTF-8",
-                        data:JSON.stringify({
-                            userEmail:strEmail
-                        }),
-                        dataType:"json",
-                        type:"post",
-                        success:function(data) {
-                            data = data.toString();
-                            console.log(data.length);
-                            console.log("true".length);
-                            if(data === "true"){
-                                $("#ok").show();
-                                $("#remove").hide();
-                                getEmailmsg.style.color="green";
-                                getEmailmsg.innerHTML="符合";
-                            }else{
-                                $("#ok").hide();
-                                $("#remove").show();
-                                getEmailmsg.style.color="red";
-                                getEmailmsg.innerHTML="该邮箱已被注册";
-                            }
-                        }
-                    })
-                }
-            }
-        });
-    });
-</script>
-<%--ajax验证密码是否合法--%>
-<script type="text/javascript">
-    $(function () {
-        $("#cpassword,#password").blur(function () {
-            var getPassword = document.getElementById("password");
-            var getCpassword = document.getElementById("cpassword")
-            var getPasswordmsg = document.getElementById("passwordmsg");
-            var strPassword = getPassword.value;
-            var strCpassword = getCpassword.value;
-            if(strPassword == null || strPassword.trim().length==0 || strCpassword == null || strCpassword.trim().length==0){
-                $("#pok").hide();
-                $("#premove").show();
-                getPasswordmsg.style.color="red";
-                getPasswordmsg.innerHTML="密码或确认密码不能为空";
-            }else if(strPassword.toString() != strCpassword.toString()){
-                $("#pok").hide();
-                $("#premove").show();
-                getPasswordmsg.style.color="red";
-                getPasswordmsg.innerHTML="两次输入密码不相同";
-            }else{
-                var reg = /^[a-z0-9A-Z]+$/;
-                if(!reg.test(strPassword) || strPassword.trim().length < 6){
-                    console.log(strPassword);
-                    $("#pok").hide();
-                    $("#premove").show();
-                    getPasswordmsg.style.color="red";
-                    getPasswordmsg.innerHTML="密码仅包含大小字母和数字且长度大于5个字符";
-                }else{
-                    $("#pok").show();
-                    $("#premove").hide();
-                    $("#butt").attr('disabled',false);
-                    getPasswordmsg.style.color="green";
-                    getPasswordmsg.innerHTML="符合";
-                }
-            }
-        });
-    });
-</script>
+
 <div class="container">
-    <div class="login">
-            <div class="col-md-6 login-do">
-                <form action="user/postUser" method="post">
-                    <div class="login-mail" style="margin-bottom: 0px">
-                        <input id="email"  type="text" placeholder="Email" required="required" name="email">
-                        <i  class="glyphicon glyphicon-envelope"></i>
-                    </div>
-                    <div style="margin-bottom: 8px; font-size: 15px">
-                        <span class="glyphicon glyphicon-ok" id="ok" style="display: none; color: green"></span>
-                        <span class="glyphicon glyphicon-remove" id="remove" style="display: none; color: red"></span>
-                        <span id="emailmsg"></span>
-                    </div>
-                    <div class="login-mail" style="margin-bottom: 20px">
-                        <input id="password" type="password" placeholder="Password" required="required" name="password">
-                        <i class="glyphicon glyphicon-lock"></i>
-                    </div>
-                    <div class="login-mail" style="margin-bottom: 0px">
-                        <input id = "cpassword" type="password" placeholder="Confirm Password" required="required">
-                        <i class="glyphicon glyphicon-lock"></i>
-                    </div>
-                    <div style="margin-bottom: 8px; font-size: 15px">
-                        <span class="glyphicon glyphicon-ok" id="pok" style="display: none; color: green"></span>
-                        <span class="glyphicon glyphicon-remove" id="premove" style="display: none; color: red"></span>
-                        <span id="passwordmsg"></span>
-                    </div>
-                    <label class="hvr-skew-backward">
-                        <input type="submit" value="Submit" disabled="disabled" id="butt">
-                    </label>
-                </form>
+    <div class="check-out">
+        <div class="bs-example4" data-example-id="simple-responsive-table">
+            <div class="table-responsive">
+                <script>
+                    addOrder = function(){
+                        $.ajax({
+                            //json格式
+                            url:"order/postorder",
+                            contentType:"application/json;charset=UTF-8",
+                            dataType:"text",
+                            type:"post",
+                            success:function(data){
+                                data = data.toString();
+                                if (data == "success")
+                                    alert("提交成功");
+                                else
+                                    alert("提交失败");
+                            },
+                            error:function (data) {
+                                alert("失败");
+                            }
+                        });
+                    }
+                </script>
+                <table class="table-heading simpleCart_shelfItem">
+                    <tr>
+                        <th>订单编号</th>
+                        <th>订单价格</th>
+                        <th>订单状态</th>
+                        <th>订单时间</th>
+                    </tr>
+                    <c:forEach items="${OrderBasisList}" var="order">
+                        <tr class="cart-header">
+                            <td>${order.orderId}</td>
+                            <td>￥${order.orderMoney}</td>
+                            <td>${order.orderStatus}</td>
+                            <td>${order.orderTime}</td>
+                            <td class="add-check"><a class="item_add hvr-skew-backward" href="order/updateorder/${order.orderId}">付款</a></td>
+                            <td class="add-check"><a class="item_add hvr-skew-backward" href="order/deleteorder/${order.orderId}">取消订单</a></td>
+                        </tr>
+                    </c:forEach>
 
-
+                </table>
             </div>
-            <div class="col-md-6 login-right">
-                <h3>Completely Free Account</h3>
-
-                <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
-                    libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
-                <a href="login.html" class="hvr-skew-backward">Login</a>
-
-            </div>
-
-            <div class="clearfix"> </div>
-        </form>
+        </div>
     </div>
-
 </div>
 
 <!--//login-->
-
 <!--brand-->
 <div class="container">
     <div class="brand">

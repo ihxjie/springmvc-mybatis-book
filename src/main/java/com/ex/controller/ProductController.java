@@ -1,6 +1,7 @@
 package com.ex.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.ex.model.Follow;
 import com.ex.model.Product;
 import com.ex.model.User;
 import com.ex.service.ProductService;
@@ -53,13 +54,23 @@ public class ProductController {
         return "hello";
     }
 
-    @GetMapping("/list")
-    public String pageList(ModelMap map,@RequestParam(defaultValue = "1",required = true,value = "pageNo")Integer pageNo){
+    @GetMapping(value = {"/list/{pname}","/list"})
+        public String pageList(HttpSession session,@RequestParam(defaultValue = "1",required = true,value = "pageNo")Integer pageNo,@PathVariable(required = false) String pname){
+        Object email = session.getAttribute("email");
+        System.out.println("///////////" + email);
+        if(email == null){
+            System.out.println("/////////");
+            session.setAttribute("email","游客");
+        }
         Integer pageSize = 9;
         PageHelper.startPage(pageNo, pageSize);
-        List<Product> productsList = productService.findAllProduct();
+        List<Product> productsList;
+        if (pname == null || pname.length() == 0 || pname.equals("null"))
+            productsList = productService.findAllProduct();
+        else
+            productsList = productService.findProductByName(pname);
         PageInfo<Product> pageInfo = new PageInfo<Product>(productsList);
-        map.addAttribute("pageInfo", pageInfo);
+        session.setAttribute("pageInfo", pageInfo);
         return "product";
     }
 
@@ -95,4 +106,10 @@ public class ProductController {
         session.setAttribute("product",product);
         return "single";
     }
+
+    @RequestMapping("/notfind")
+    public String to404(){
+        return "404";
+    }
+
 }

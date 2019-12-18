@@ -57,7 +57,7 @@ public class UserController {
         if(list.size()!=0 && list.get(0).getUserPassword().equals(user.getUserPassword())){
             System.out.println("22");
             session.setAttribute("uid",list.get(0).getUserId());
-            session.setAttribute("eamil",user.getUserEmail());
+            session.setAttribute("email",user.getUserEmail());
             return "success";
         }else{
             System.out.println("11");

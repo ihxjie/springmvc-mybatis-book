@@ -23,4 +23,12 @@ public class UserMapperTest extends BaseJunit4Test {
         }
     }
 
+    @Test
+    public void testtt(String str){
+        if(str == null){
+            System.out.println("111");
+        }
+
+    }
+
 }

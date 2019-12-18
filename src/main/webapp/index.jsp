@@ -49,7 +49,7 @@
     </script>
 </head>
 <body>
-<a href="product/list">分页查询</a>
+<a href="product/list/null">分页查询</a>
 <a href="product/sayHello">123</a>
 <form id="form1">
     <input type="text" name="userId" id="userId">

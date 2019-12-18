@@ -71,9 +71,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <div class="col-sm-5 col-md-offset-2  header-login">
                 <ul >
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a href="user/tologin">Login</a></li>
+                    <li><a href="product/jsp">Register</a></li>
+                    <li><a href="cart/getcart">Checkout</a></li>
+                    <li><a href="#">${email},欢迎你！</a></li>
                 </ul>
             </div>
 
@@ -111,10 +112,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav nav_1">
-                            <li><a class="color" href="index.html">Home</a></li>
+                            <li><a class="color" href="product/list/null">Home</a></li>
+
                             <li class="dropdown mega-dropdown active">
                                 <a class="color1" href="#" class="dropdown-toggle" data-toggle="dropdown">Women<span class="caret"></span></a>
-                                <div class="dropdown-menu ">
+                                <div class="dropdown-menu">
                                     <div class="menu-top">
                                         <div class="col1">
                                             <div class="h_nav">
@@ -253,20 +255,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-sm-2 search-right">
                 <ul class="heart">
                     <li>
-                        <a href="wishlist.html" >
+                        <a href="follow/getfollow" >
                             <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                         </a></li>
                     <li><a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i></a></li>
+                    <li>
+                        <a href="cart/getcart">
+                            <img src="assets/images/cart.png" alt=""/>
+                        </a>
+                    </li>
                 </ul>
-                <div class="cart box_1">
-                    <a href="checkout.html">
-                        <h3> <div class="total">
-                            <span class="simpleCart_total"></span></div>
-                            <img src="assets/images/cart.png" alt=""/></h3>
-                    </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
-                </div>
                 <div class="clearfix"> </div>
 
                 <!----->
@@ -275,11 +274,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <link href="assets/css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
                 <script src="assets/js/jquery.magnific-popup.js" type="text/javascript"></script>
                 <!---//pop-up-box---->
+                <script>
+                    search = function(){
+                        var contents = document.getElementById("contents").value;
+                        console.log(contents);
+                        window.location.href='product/list/' + contents;
+                    }
+                </script>
                 <div id="small-dialog" class="mfp-hide">
-                    <div class="search-top">
-                        <div class="login-search">
-                            <input type="submit" value="">
-                            <input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
+                    <div class="login-search">
+                        <div class="login">
+                            <input type="submit" value="" onclick="search();">
+                            <input id="contents" type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
                         </div>
                         <p>Shopin</p>
                     </div>
@@ -320,6 +326,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="check-out">
         <div class="bs-example4" data-example-id="simple-responsive-table">
             <div class="table-responsive">
+                <script>
+                    addOrder = function(){
+                        $.ajax({
+                            //json格式
+                            url:"order/postorder",
+                            contentType:"application/json;charset=UTF-8",
+                            dataType:"text",
+                            type:"post",
+                            success:function(data){
+                                data = data.toString();
+                                if (data == "success")
+                                    alert("提交成功");
+                                else
+                                    alert("提交失败");
+                            },
+                            error:function (data) {
+                                alert("失败");
+                            }
+                        });
+                    }
+                </script>
                 <table class="table-heading simpleCart_shelfItem">
                     <tr>
                         <th class="table-grid">商品</th>
@@ -349,7 +376,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
         <div class="produced">
-            <a href="single.html" class="hvr-skew-backward">Produced To Buy</a>
+            <a onclick="addOrder();" class="hvr-skew-backward">提交结算</a>
         </div>
     </div>
 </div>

@@ -1,12 +1,10 @@
-package com.ex.dao;
+package com.ex.service;
 
 import com.ex.model.OrderBasis;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface OrderBasisMapper {
+public interface OrderBasisService {
     int deleteByPrimaryKey(Integer orderId);
 
     int insertSelective(OrderBasis record);
