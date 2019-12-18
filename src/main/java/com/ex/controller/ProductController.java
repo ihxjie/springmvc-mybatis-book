@@ -81,9 +81,5 @@ public class ProductController {
         //System.out.println(JSONObject.toJSONString(pageInfo, WriteMapNullValue));
         return JSONObject.toJSONString(pageInfo, WriteMapNullValue);
     }
-    @GetMapping("/handle")
-    public String handle(){
-        return "fileUpload";
-    }
 
 }
