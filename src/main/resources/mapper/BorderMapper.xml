@@ -18,4 +18,9 @@
   <select id="getAllBorder"  resultMap="BaseResultMap">
     SELECT * FROM border
   </select>
+  <select id="findBorderByNames" parameterType="String" resultMap="BaseResultMap">
+    select * from border
+    where border_title like concat('%',#{keyword},'%')
+       or border_content like concat('%',#{keyword},'%')
+  </select>
 </mapper>

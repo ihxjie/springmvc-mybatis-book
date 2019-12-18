@@ -65,16 +65,14 @@ public class ProductController {
 
     @GetMapping(value = "/getProducts",produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public String getProduct(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum, @RequestParam(defaultValue = "10",value = "pageSize") int pageSize){
+    public String getProduct(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum,
+                             @RequestParam(defaultValue = "10",value = "pageSize") int pageSize,
+                             @RequestParam(defaultValue = "", value = "keyword") String keyword){
         PageHelper.startPage(pageNum,pageSize);
-        List<Product> productList = productService.findAllProduct();
+        List<Product> productList = productService.findProductByName(keyword);
         PageInfo pageInfo = new PageInfo(productList);
-        System.out.println(JSONObject.toJSONString(pageInfo, WriteMapNullValue));
+        //System.out.println(JSONObject.toJSONString(pageInfo, WriteMapNullValue));
         return JSONObject.toJSONString(pageInfo, WriteMapNullValue);
-    }
-    @GetMapping("/handle")
-    public String handle(){
-        return "fileUpload";
     }
 
 }

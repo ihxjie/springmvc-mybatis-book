@@ -29,8 +29,24 @@ public class AdminController {
         model.addAttribute("info","密码错误");
         return "adminLogin";
     }
-    @GetMapping("/backstageSys")
+    @GetMapping("/ProductBackstageSys")
     public String backstageSys(){
         return "adminProductBackstageSys";
+    }
+    @GetMapping("/TypeBackstageSys")
+    public String typeBackSys(){
+        return "adminTypeBackstageSys";
+    }
+    @GetMapping("/UserBackstageSys")
+    public String userBackSys(){
+        return "adminUserBackstageSys";
+    }
+    @GetMapping("/OrderBackstageSys")
+    public String orderBackSys(){
+        return "adminOrderBackstageSys";
+    }
+    @GetMapping("/BorderBackstageSys")
+    public String borderBackSys(){
+        return "adminBorderBackstageSys";
     }
 }

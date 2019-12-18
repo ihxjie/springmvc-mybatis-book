@@ -26,6 +26,10 @@
         <div id="content">
             <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                 <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                    <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                        <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                        <div class="sidebar-brand-text mx-3"><span>电子商务平台</span></div>
+                    </a>
                     <ul class="nav navbar-nav flex-nowrap ml-auto">
                         <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
                             <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
@@ -36,11 +40,6 @@
                                 </form>
                             </div>
                         </li>
-                        <li class="nav-item dropdown no-arrow mx-1" role="presentation"></li>
-                        <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                            <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
-                        </li>
-                        <div class="d-none d-sm-block topbar-divider"></div>
                         <li class="nav-item dropdown no-arrow" role="presentation">
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Valerie Luna</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
                                 <div
@@ -54,7 +53,7 @@
                 </div>
             </nav>
             <div class="container-fluid">
-                <h3 class="text-dark mb-4">Profile</h3>
+                <h3 class="text-dark mb-4">商品详细信息</h3>
                 <div class="row mb-3">
                     <div class="col-lg-3">
                         <div class="card shadow mb-3">
@@ -62,7 +61,7 @@
                                 <p class="text-primary m-0 font-weight-bold">商品图片</p>
                             </div>
                             <div class="card-body text-center shadow">
-                                <img src="${product.productPicture}" class="rounded-circle mb-3 mt-4" width="160" height="160" alt="商品图片" id="picture">
+                                <img src="${product.productPicture}" class="mb-3 mt-4" style="max-width: 300px;max-height: 160px" alt="商品图片" id="picture">
                                 <hr>
                                 <div class="mb-3">
                                     <form id="picUpload" enctype="multipart/form-data">

@@ -1,6 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
   User: xingj
+  Date: 2019/12/12
+  Time: 19:17
+  To change this template use File | Settings | File Templates.
+--%>
+<%--
+  Created by IntelliJ IDEA.
+  User: xingj
   Date: 2019/12/1
   Time: 22:14
   To change this template use File | Settings | File Templates.
@@ -13,7 +20,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>商品管理</title>
+    <title>公告管理</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
@@ -56,12 +63,16 @@
                 <div class="row">
                     <div class="col-md-6 col-xl-3 mb-4">
                         <div class="card shadow border-left-primary py-2">
-                            <div class="card-body">
+                            <div class="card-body" href="handle/adminProductBackstageSys">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
                                         <div class="text-primary font-weight-bold h5 mb-0"><span>商品管理</span></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-primary"></i></div>
+                                    <div class="col-auto">
+                                        <a href="handle/ProductBackstageSys">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +100,11 @@
                                     <div class="col mr-2">
                                         <div class="text-info font-weight-bold h5 mb-0 mr-3"><span>用户管理</span></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
+                                    <div class="col-auto">
+                                        <a href="handle/adminUserBackstageSys">
+                                            <i class="fas fa-clipboard-list fa-2x text-info"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -113,11 +128,7 @@
                                     <div class="col mr-2">
                                         <div class="text-danger font-weight-bold h5 mb-0"><span>公告管理</span></div>
                                     </div>
-                                    <div class="col-auto">
-                                        <a href="handle/BorderBackstageSys">
-                                            <i class="fas fa-calculator fa-2x text-gray-300"></i>
-                                        </a>
-                                    </div>
+                                    <div class="col-auto"><i class="fas fa-calculator fa-2x text-gray-300"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +136,7 @@
                 </div>
                 <div class="card shadow">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 font-weight-bold">商品信息</p>
+                        <p class="text-primary m-0 font-weight-bold">用户管理</p>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -149,12 +160,8 @@
                             <table class="table dataTable my-0" id="dataTable">
                                 <thead>
                                 <tr>
-                                    <th>产品名称</th>
-                                    <th>产品原价</th>
-                                    <th>产品现价</th>
-                                    <th>产品库存</th>
-                                    <th>产品图片</th>
-                                    <th>产品类别</th>
+                                    <th>E-Mail</th>
+                                    <th>密码</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -164,12 +171,8 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <td><strong>产品名称</strong></td>
-                                    <td><strong>产品原价</strong></td>
-                                    <td><strong>产品现价</strong></td>
-                                    <td><strong>产品库存</strong></td>
-                                    <td><strong>产品图片</strong></td>
-                                    <td><strong>产品类别</strong></td>
+                                    <td><strong>E-Mail</strong></td>
+                                    <td><strong>密码</strong></td>
                                     <td><strong>操作</strong></td>
                                 </tr>
                                 </tfoot>
@@ -214,9 +217,10 @@
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/chart.min.js"></script>
-<script src="assets/js/product-init.js"></script>
+<script src="assets/js/user-init.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 <script src="assets/js/theme.js"></script>
 </body>
 
 </html>
+
