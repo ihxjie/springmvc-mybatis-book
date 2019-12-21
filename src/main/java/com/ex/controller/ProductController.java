@@ -37,9 +37,8 @@ public class ProductController {
     }
 
     @PostMapping(path = "/add")
-    public String add(@ModelAttribute Product product){
+    public void add(@ModelAttribute Product product){
         productService.addProduct(product);
-        return "hello";
     }
 
     @GetMapping("/{product_id}")
@@ -55,11 +54,6 @@ public class ProductController {
         return "adminProductSingle";
     }
 
-    @PostMapping("/insert")
-    public String insert(@ModelAttribute Product product, Model model, Errors errors){
-        productService.addProduct(product);
-        return "hello";
-    }
     @PostMapping("/update")
     public String update(@ModelAttribute Product product){
         productService.updProduct(product);

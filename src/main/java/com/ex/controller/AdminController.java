@@ -9,24 +9,32 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class AdminController {
     @Autowired
     AdminService adminService;
 
 
-    @GetMapping("/Login")
+    @GetMapping("/login")
     public String login(){
-        return "fileUpload";
+        return "adminLogin";
     }
 
-    @PostMapping("/Validate")
-    public String validate(@ModelAttribute Admin admin, Model model, Errors errors){
+    @PostMapping("/validate")
+    public String validate(@ModelAttribute Admin admin, Model model, HttpSession session){
         Admin a = adminService.findAdminByUsername(admin.getUsername());
         if (a != null){
-            return "redirect:/product/backstageSys";
+            session.setAttribute("username",a.getUsername());
+            return "adminProductBackstageSys";
         }
-        model.addAttribute("info","密码错误");
+        model.addAttribute("info","账号或密码错误");
+        return "adminLogin";
+    }
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
         return "adminLogin";
     }
     @GetMapping("/ProductBackstageSys")

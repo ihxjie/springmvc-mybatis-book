@@ -33,11 +33,13 @@
                                 <div class="text-center">
                                     <h4 class="text-dark mb-4">欢迎管理员登录系统</h4>
                                 </div>
-                                <form class="user" action="${pageContext.request.contextPath}/Validate" method="post">
+                                <form class="user" action="${pageContext.request.contextPath}/validate" method="post">
                                     <div class="form-group">
                                         <input class="form-control form-control-user" type="text" autocomplete="off" aria-describedby="emailHelp" placeholder="请输入管理员账户名称" name="username"></div>
                                     <div class="form-group">
-                                        <input class="form-control form-control-user" type="password" placeholder="请输入管理员密码" name="password"></div>
+                                        <input class="form-control form-control-user" type="password" placeholder="请输入管理员密码" name="password">
+                                        <a>${info}</a>
+                                    </div>
                                     <hr>
                                     <button class="btn btn-primary btn-block text-white btn-user" type="submit">登录</button>
                                     <hr>

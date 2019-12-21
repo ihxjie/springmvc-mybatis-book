@@ -13,6 +13,6 @@
 
 </head>
 <body>
- <a href="/Login">sss</a>
+ <a href="${pageContext.request.contextPath}/login">管理员登录</a>
 </body>
 </html>
