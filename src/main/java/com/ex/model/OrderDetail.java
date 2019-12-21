@@ -1,19 +1,11 @@
 package com.ex.model;
 
 public class OrderDetail {
-    private Integer purchaseQuantity;
-
     private Integer orderId;
 
+    private Integer purchaseQuantity;
+
     private Integer productId;
-
-    public Integer getPurchaseQuantity() {
-        return purchaseQuantity;
-    }
-
-    public void setPurchaseQuantity(Integer purchaseQuantity) {
-        this.purchaseQuantity = purchaseQuantity;
-    }
 
     public Integer getOrderId() {
         return orderId;
@@ -21,6 +13,14 @@ public class OrderDetail {
 
     public void setOrderId(Integer orderId) {
         this.orderId = orderId;
+    }
+
+    public Integer getPurchaseQuantity() {
+        return purchaseQuantity;
+    }
+
+    public void setPurchaseQuantity(Integer purchaseQuantity) {
+        this.purchaseQuantity = purchaseQuantity;
     }
 
     public Integer getProductId() {

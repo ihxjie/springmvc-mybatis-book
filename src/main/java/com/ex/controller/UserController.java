@@ -27,7 +27,7 @@ public class UserController {
 
     @GetMapping(value = "/getUser",produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public String getProduct(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum,
+    public String getUser(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum,
                              @RequestParam(defaultValue = "10",value = "pageSize") int pageSize,
                              @RequestParam(defaultValue = "", value = "keyword") String keyword){
         PageHelper.startPage(pageNum,pageSize);

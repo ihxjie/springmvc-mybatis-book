@@ -21,6 +21,13 @@
     delete from order_basis
     where order_id = #{orderId,jdbcType=INTEGER}
   </delete>
+  <select id="selectOrderBasisByNames" parameterType="String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from order_basis
+    where order_id like concat('%',#{keyword},'%')
+    or user_id like concat('%',#{keyword},'%')
+  </select>
   <insert id="insertSelective" parameterType="com.ex.model.OrderBasis">
     insert into order_basis
     <trim prefix="(" suffix=")" suffixOverrides=",">

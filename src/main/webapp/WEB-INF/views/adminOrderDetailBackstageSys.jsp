@@ -118,7 +118,7 @@
                                     </div>
                                     <div class="col-auto">
                                         <a href="handle/BorderBackstageSys">
-                                            <i class="fas fa-calculator fa-2x text-danger"></i>
+                                            <i class="fas fa-calculator fa-2x text-gray-300"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                     </div>
                                     <div class="col-auto">
                                         <a href="handle/OrderDetailBackstageSys">
-                                            <i class="fas fa-database fa-2x text-gray-300"></i>
+                                            <i class="fas fa-database fa-2x text-secondary"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@
                 </div>
                 <div class="card shadow">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 font-weight-bold">公告板</p>
+                        <p class="text-primary m-0 font-weight-bold">订单详情</p>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -176,20 +176,17 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-right dataTables_filter" id="dataTable_filter"><label>
-                                    <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search" id="search-box"></label>
-                                    <label><a class='btn btn-danger btn-icon-split' role='button' data-toggle="modal" href="#myModal">
-                                            <span class='text-white icon'><i class='fas fa-plus'></i> 新增公告</span></a>
-                                    </label>
-                                </div>
+                                    <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search" id="search-box">
+                                </label></div>
                             </div>
                         </div>
                         <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info">
                             <table class="table dataTable my-0" id="dataTable">
                                 <thead>
                                 <tr>
-                                    <th>公告标题</th>
-                                    <th>公告内容</th>
-                                    <th>公告时间</th>
+                                    <th>购买数量</th>
+                                    <th>订单编号</th>
+                                    <th>商品编号</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -199,9 +196,9 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <td><strong>公告标题</strong></td>
-                                    <td><strong>公告内容</strong></td>
-                                    <td><strong>公告时间</strong></td>
+                                    <td><strong>构面数量</strong></td>
+                                    <td><strong>订单编号</strong></td>
+                                    <td><strong>商品编号</strong></td>
                                     <td><strong>操作</strong></td>
                                 </tr>
                                 </tfoot>
@@ -243,37 +240,10 @@
             </div>
         </footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">
-                    新增公告
-                </h4>
-            </div>
-            <form action="${pageContext.request.contextPath}/border/insert" method="post">
-                <div class="modal-body">
-
-                    <label>公告标题
-                        <input name="borderTitle">
-                    </label>
-                    <label>公告内容
-                        <textarea name="borderContent" rows="5"></textarea>
-                    </label>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="submit" class="btn btn-primary">提交</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/chart.min.js"></script>
-<script src="assets/js/border-init.js"></script>
+<script src="assets/js/orderDetail-init.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 <script src="assets/js/theme.js"></script>
 </body>

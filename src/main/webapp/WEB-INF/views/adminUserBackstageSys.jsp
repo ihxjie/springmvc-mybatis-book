@@ -20,7 +20,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>公告管理</title>
+    <title>用户管理</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
@@ -85,7 +85,7 @@
                                         <div class="text-success font-weight-bold h5 mb-0"><span>类型管理</span></div>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="handle/BorderBackstageSys" role="button">
+                                        <a href="handle/TypeBackstageSys" role="button">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                         </a>
                                     </div>
@@ -101,22 +101,10 @@
                                         <div class="text-info font-weight-bold h5 mb-0 mr-3"><span>用户管理</span></div>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="handle/adminUserBackstageSys">
+                                        <a href="handle/UserBackstageSys">
                                             <i class="fas fa-clipboard-list fa-2x text-info"></i>
                                         </a>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-3 mb-4">
-                        <div class="card shadow border-left-warning py-2">
-                            <div class="card-body">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col mr-2">
-                                        <div class="text-warning font-weight-bold h5 mb-0"><span>订单管理</span></div>
-                                    </div>
-                                    <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +116,43 @@
                                     <div class="col mr-2">
                                         <div class="text-danger font-weight-bold h5 mb-0"><span>公告管理</span></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-calculator fa-2x text-gray-300"></i></div>
+                                    <div class="col-auto">
+                                        <a href="handle/BorderBackstageSys">
+                                            <i class="fas fa-calculator fa-2x text-gray-300"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card shadow border-left-warning py-2">
+                            <div class="card-body">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="text-warning font-weight-bold h5 mb-0"><span>订单基础</span></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="handle/OrderBasisBackstageSys">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card shadow border-left-secondary py-2">
+                            <div class="card-body">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="text-secondary font-weight-bold h5 mb-0"><span>订单详情</span></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="handle/OrderDetailBackstageSys">
+                                            <i class="fas fa-database fa-2x text-gray-300"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

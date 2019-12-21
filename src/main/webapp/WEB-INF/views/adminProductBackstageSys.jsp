@@ -56,12 +56,16 @@
                 <div class="row">
                     <div class="col-md-6 col-xl-3 mb-4">
                         <div class="card shadow border-left-primary py-2">
-                            <div class="card-body">
+                            <div class="card-body" href="handle/adminProductBackstageSys">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
                                         <div class="text-primary font-weight-bold h5 mb-0"><span>商品管理</span></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-primary"></i></div>
+                                    <div class="col-auto">
+                                        <a href="handle/ProductBackstageSys">
+                                            <i class="fas fa-calendar fa-2x text-primary"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +78,7 @@
                                         <div class="text-success font-weight-bold h5 mb-0"><span>类型管理</span></div>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="handle/BorderBackstageSys" role="button">
+                                        <a href="handle/TypeBackstageSys" role="button">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                         </a>
                                     </div>
@@ -89,19 +93,11 @@
                                     <div class="col mr-2">
                                         <div class="text-info font-weight-bold h5 mb-0 mr-3"><span>用户管理</span></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-3 mb-4">
-                        <div class="card shadow border-left-warning py-2">
-                            <div class="card-body">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col mr-2">
-                                        <div class="text-warning font-weight-bold h5 mb-0"><span>订单管理</span></div>
+                                    <div class="col-auto">
+                                        <a href="handle/UserBackstageSys">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </a>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -116,6 +112,38 @@
                                     <div class="col-auto">
                                         <a href="handle/BorderBackstageSys">
                                             <i class="fas fa-calculator fa-2x text-gray-300"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card shadow border-left-warning py-2">
+                            <div class="card-body">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="text-warning font-weight-bold h5 mb-0"><span>订单基础</span></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="handle/OrderBasisBackstageSys">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card shadow border-left-secondary py-2">
+                            <div class="card-body">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="text-secondary font-weight-bold h5 mb-0"><span>订单详情</span></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="handle/OrderDetailBackstageSys">
+                                            <i class="fas fa-database fa-2x text-gray-300"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -141,8 +169,11 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-right dataTables_filter" id="dataTable_filter"><label>
-                                    <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search" id="search-box">
-                                </label></div>
+                                    <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search" id="search-box"></label>
+                                    <label><a class='btn btn-primary btn-icon-split' role='button' href="product/new">
+                                        <span class='text-white icon'><i class='fas fa-plus'></i> 新增商品</span></a>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info">
@@ -155,7 +186,8 @@
                                     <th>产品库存</th>
                                     <th>产品图片</th>
                                     <th>产品类别</th>
-                                    <th>操作</th>
+                                    <th>编辑</th>
+                                    <th>删除</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -170,7 +202,8 @@
                                     <td><strong>产品库存</strong></td>
                                     <td><strong>产品图片</strong></td>
                                     <td><strong>产品类别</strong></td>
-                                    <td><strong>操作</strong></td>
+                                    <td><strong>编辑</strong></td>
+                                    <td><strong>删除</strong></td>
                                 </tr>
                                 </tfoot>
                             </table>

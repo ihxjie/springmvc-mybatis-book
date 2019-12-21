@@ -15,6 +15,8 @@ public interface OrderBasisMapper {
 
     List<OrderBasis> selectAllOrderBasis();
 
+    List<OrderBasis> selectOrderBasisByNames(String keyword);
+
     //int updateByPrimaryKeySelective(OrderBasis record);
 
     //int updateByPrimaryKey(OrderBasis record);

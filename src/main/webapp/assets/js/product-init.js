@@ -46,6 +46,8 @@ function getProducts() {
                 tbodyHtml += "</td><td>" + obj.typeId;
                 tbodyHtml += "</td><td><a class='btn btn-primary btn-icon-split' role='button' href='product/" + obj.productId +
                     "'><span class='text-white icon'><i class='fas fa-edit'></i></span></a>";
+                tbodyHtml += "</td><td><a class='btn btn-danger btn-icon-split' role='button' href='product/delete/" + obj.productId +
+                    "'><span class='text-white icon'><i class='fas fa-trash'></i></span></a>";
                 tbodyHtml += "</td><tr>";
             });
             tbody.html(tbodyHtml);

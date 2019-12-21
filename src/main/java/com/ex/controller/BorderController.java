@@ -22,7 +22,7 @@ public class BorderController {
 
     @GetMapping(value = "/getBorder",produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public String getProduct(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum,
+    public String getBorder(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum,
                              @RequestParam(defaultValue = "10",value = "pageSize") int pageSize,
                              @RequestParam(defaultValue = "", value = "keyword") String keyword){
         PageHelper.startPage(pageNum,pageSize);
@@ -34,6 +34,11 @@ public class BorderController {
     @GetMapping("/delete/{borderId}")
     public String delete(@PathVariable Integer borderId){
         borderService.delBorder(borderId);
+        return "redirect:/BorderBackstageSys";
+    }
+    @PostMapping("/insert")
+    public String insert(@ModelAttribute Border border){
+        borderService.addBorder(border);
         return "redirect:/BorderBackstageSys";
     }
 }

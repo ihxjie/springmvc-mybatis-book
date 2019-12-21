@@ -37,8 +37,7 @@ public class ProductController {
     }
 
     @PostMapping(path = "/add")
-    public String add(@RequestBody Product product){
-        System.out.println(product);
+    public String add(@ModelAttribute Product product){
         productService.addProduct(product);
         return "hello";
     }
@@ -51,16 +50,25 @@ public class ProductController {
         return modelAndView;
 
     }
+    @GetMapping("/new")
+    public String newProduct(){
+        return "adminProductSingle";
+    }
 
     @PostMapping("/insert")
     public String insert(@ModelAttribute Product product, Model model, Errors errors){
         productService.addProduct(product);
         return "hello";
     }
-    @PostMapping("update")
+    @PostMapping("/update")
     public String update(@ModelAttribute Product product){
         productService.updProduct(product);
-        return "redirect:/backstageSys";
+        return "redirect:/ProductBackstageSys";
+    }
+    @GetMapping("/delete/{productId}")
+    public String delete(@PathVariable Integer productId){
+        productService.delProduct(productId);
+        return "redirect:/ProductBackstageSys";
     }
 
     @GetMapping(value = "/getProducts",produces = "text/plain;charset=utf-8")

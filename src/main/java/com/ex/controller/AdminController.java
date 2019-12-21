@@ -41,12 +41,16 @@ public class AdminController {
     public String userBackSys(){
         return "adminUserBackstageSys";
     }
-    @GetMapping("/OrderBackstageSys")
-    public String orderBackSys(){
-        return "adminOrderBackstageSys";
+    @GetMapping("/OrderDetailBackstageSys")
+    public String orderDetailBackSys(){
+        return "adminOrderDetailBackstageSys";
     }
     @GetMapping("/BorderBackstageSys")
     public String borderBackSys(){
         return "adminBorderBackstageSys";
+    }
+    @GetMapping("/OrderBasisBackstageSys")
+    public String orderBasisBackSys(){
+        return "adminOrderBasisBackstageSys";
     }
 }
