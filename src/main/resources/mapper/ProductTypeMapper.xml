@@ -16,4 +16,9 @@
   <select id="findAllType"  resultMap="BaseResultMap">
     SELECT * FROM product_type
   </select>
+  <select id="findTypeByNames" parameterType="String" resultMap="BaseResultMap">
+    select * from product_type
+    where type_name like concat('%',#{keyword},'%')
+       or type_id = #{keyword}
+  </select>
 </mapper>

@@ -33,7 +33,7 @@
             type:"post",
             dataType:"json",
             contentType:"application/json",
-            data:JSON.stringify({"productName":"王星杰憨批"})
+            data:JSON.stringify({"productName":"nbnb"})
         })
     }
 </script>

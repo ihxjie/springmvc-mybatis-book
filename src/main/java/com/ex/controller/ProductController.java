@@ -1,25 +1,34 @@
 package com.ex.controller;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.ex.model.Product;
-import com.ex.model.User;
 import com.ex.service.ProductService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.util.Calendar;
 import java.util.List;
+
+import static com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue;
 
 @Controller
 @RequestMapping("/product")
 public class ProductController {
     @Resource
-    private ProductService productService;
+    ProductService productService;
 
     @GetMapping("/findProduct/{keyword}")
     @ResponseBody
@@ -28,56 +37,44 @@ public class ProductController {
     }
 
     @PostMapping(path = "/add")
-    public String add(@RequestBody Product product){
-        System.out.println(product);
+    public void add(@ModelAttribute Product product){
         productService.addProduct(product);
-        return "hello";
     }
 
-    @GetMapping("/findProductById/{product_id}")
+    @GetMapping("/{product_id}")
+    public ModelAndView getProductById(@PathVariable Integer product_id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("product",productService.findProductById(product_id));
+        modelAndView.setViewName("adminProductSingle");
+        return modelAndView;
+
+    }
+    @GetMapping("/new")
+    public String newProduct(){
+        return "adminProductSingle";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute Product product){
+        productService.updProduct(product);
+        return "redirect:/ProductBackstageSys";
+    }
+    @GetMapping("/delete/{productId}")
+    public String delete(@PathVariable Integer productId){
+        productService.delProduct(productId);
+        return "redirect:/ProductBackstageSys";
+    }
+
+    @GetMapping(value = "/getProducts",produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public Product getProductById(@PathVariable Integer product_id){
-        return productService.findProductById(product_id);
-    }
-
-    @GetMapping("/sayHello")
-    public void sayHello(){
-        System.out.println("Hellow");
-    }
-
-    @PostMapping("/insert")
-    public String insert(@ModelAttribute Product product, Model model, Errors errors){
-        productService.addProduct(product);
-        return "hello";
-    }
-
-    @GetMapping("/list")
-    public String pageList(ModelMap map,@RequestParam(defaultValue = "1",required = true,value = "pageNo")Integer pageNo){
-        Integer pageSize = 5;
-        PageHelper.startPage(pageNo, pageSize);
-        List<Product> productsList = productService.findAllProduct();
-        PageInfo<Product> pageInfo = new PageInfo<Product>(productsList);
-        map.addAttribute("pageInfo", pageInfo);
-        return "list";
-    }
-
-    @RequestMapping("/testAjax")
-    public @ResponseBody User testAjax(@RequestBody User user){
-        System.out.println("tA执行了");
-        // 客户端发送ajax请求，传JSON字符串，后端把JSON字符串封装到user_2对象中
-        System.out.println(user);
-        return user;
-    }
-    @GetMapping(value = "/test",produces = "text/plain;charset=utf-8")
-    @ResponseBody
-    public String getProduct(){
-        PageHelper.startPage(1,3);
-        List<Product> productList = productService.findAllProduct();
-        System.out.println("6");
+    public String getProduct(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum,
+                             @RequestParam(defaultValue = "10",value = "pageSize") int pageSize,
+                             @RequestParam(defaultValue = "", value = "keyword") String keyword){
+        PageHelper.startPage(pageNum,pageSize);
+        List<Product> productList = productService.findProductByName(keyword);
         PageInfo pageInfo = new PageInfo(productList);
-        System.out.println(JSON.toJSONString(pageInfo));
-        return JSON.toJSONString(pageInfo);
-
+        //System.out.println(JSONObject.toJSONString(pageInfo, WriteMapNullValue));
+        return JSONObject.toJSONString(pageInfo, WriteMapNullValue);
     }
 
 }

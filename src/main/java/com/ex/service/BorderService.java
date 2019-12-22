@@ -1,18 +1,12 @@
-package com.ex.dao;
+package com.ex.service;
 
 import com.ex.model.Border;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface BorderMapper {
-
+public interface BorderService {
     int addBorder(Border border);
-
     int delBorder(int border_id);
-
     List<Border> getAllBorder();
-
     List<Border> findBorderByNames(String keyword);
 }
