@@ -13,6 +13,10 @@ public class AdminInterceptor implements HandlerInterceptor {
         if (uri.contains("/login") || uri.contains("/validate")){
             return true;
         }
+        //不拦截静态资源
+        if (uri.contains("/assets")){
+            return true;
+        }
         HttpSession session = request.getSession();
         String username = session.getAttribute("username").toString();
         if (username != null){

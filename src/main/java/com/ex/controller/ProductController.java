@@ -64,11 +64,6 @@ public class ProductController {
         productService.delProduct(productId);
         return "redirect:/ProductBackstageSys";
     }
-    @PostMapping("update")
-    public String update(@ModelAttribute Product product){
-        productService.updProduct(product);
-        return "redirect:/backstageSys";
-    }
 
     @GetMapping(value = "/getProducts",produces = "text/plain;charset=utf-8")
     @ResponseBody

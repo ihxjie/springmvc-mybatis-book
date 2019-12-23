@@ -25,7 +25,7 @@ public class AdminController {
     @PostMapping("/validate")
     public String validate(@ModelAttribute Admin admin, Model model, HttpSession session){
         Admin a = adminService.findAdminByUsername(admin.getUsername());
-        if (a != null){
+        if (a.getPassword().equals(admin.getPassword())){
             session.setAttribute("username",a.getUsername());
             return "adminProductBackstageSys";
         }

@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap 实例 - 工具提示（Tooltip）插件</title>
+    <title>电子商务系统</title>
 
 </head>
 <body>
