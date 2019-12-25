@@ -23,4 +23,6 @@ public interface OrderBasisMapper {
 
     int insert(OrderBasis record);
 
+    List<OrderBasis> selectOrderBasisByNames(String keyword);
+
 }

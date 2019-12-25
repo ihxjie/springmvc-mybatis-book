@@ -11,5 +11,6 @@ public interface ProductService {
     List<Product> findAllProduct();
     int addProduct(Product product);
     int delProduct(Integer product_id);
+    int updProduct(Product product);
 
 }

@@ -1,7 +1,6 @@
 package com.ex.controller;
 
 import com.ex.model.JSR303Test;
-import com.ex.service.ExUserService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

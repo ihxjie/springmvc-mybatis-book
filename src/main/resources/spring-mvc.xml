@@ -18,6 +18,8 @@
     <mvc:default-servlet-handler/>
     <!--配置路径映射，访问静态文件-->
     <mvc:resources mapping="/product/assets/**" location="/assets/"/>
+    <mvc:resources mapping="/product/upload/**" location="/upload/"/>
+
     <mvc:resources mapping="/user/assets/**" location="/assets/"/>
     <mvc:resources mapping="/product/toSingle/assets/**" location="/assets/"/>
     <mvc:resources mapping="/follow/assets/**" location="/assets/"/>
@@ -55,4 +57,5 @@
             <bean class="com.ex.interceptor.UserInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
 </beans>

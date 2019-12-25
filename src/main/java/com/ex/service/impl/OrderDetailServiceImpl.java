@@ -6,6 +6,7 @@ import com.ex.service.OrderDetailService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class OrderDetailServiceImpl implements OrderDetailService {
@@ -13,10 +14,6 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     @Resource
     OrderDetailMapper orderDetailMapper;
 
-    @Override
-    public int deleteByPrimaryKey(Integer purchaseQuantity) {
-        return 0;
-    }
 
     @Override
     public int insert(OrderDetail record) {
@@ -41,5 +38,14 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     @Override
     public int updateByPrimaryKey(OrderDetail record) {
         return 0;
+    }
+
+    public int deleteByPrimaryKey(Integer orderId) {
+        return orderDetailMapper.deleteByPrimaryKey(orderId);
+    }
+
+    @Override
+    public List<OrderDetail> selectByNames(String keyword) {
+        return orderDetailMapper.selectByNames(keyword);
     }
 }

@@ -13,4 +13,6 @@ public interface BorderMapper {
     int delBorder(int border_id);
 
     List<Border> getAllBorder();
+
+    List<Border> findBorderByNames(String keyword);
 }

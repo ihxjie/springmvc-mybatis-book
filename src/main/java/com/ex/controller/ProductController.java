@@ -1,7 +1,7 @@
 package com.ex.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.ex.model.Follow;
+import com.alibaba.fastjson.JSONObject;
 import com.ex.model.Product;
 import com.ex.model.User;
 import com.ex.service.ProductService;
@@ -12,10 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+
+import static com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue;
 
 @Controller
 @RequestMapping("/product")
@@ -30,32 +33,12 @@ public class ProductController {
     }
 
     @PostMapping(path = "/add")
-    public String add(@RequestBody Product product){
-        System.out.println(product);
+    public void add(@ModelAttribute Product product){
         productService.addProduct(product);
-        return "hello";
-    }
-
-    @GetMapping("/findProductById/{product_id}")
-    @ResponseBody
-    public Product getProductById(@PathVariable Integer product_id){
-        return productService.findProductById(product_id);
-    }
-
-    @GetMapping("/sayHello")
-    public String sayHello(){
-        System.out.println("Hellow");
-        return "ajax-demo";
-    }
-
-    @PostMapping("/insert")
-    public String insert(@ModelAttribute Product product, Model model, Errors errors){
-        productService.addProduct(product);
-        return "hello";
     }
 
     @GetMapping(value = {"/list/{pname}","/list"})
-        public String pageList(HttpSession session,@RequestParam(defaultValue = "1",required = true,value = "pageNo")Integer pageNo,@PathVariable(required = false) String pname){
+    public String pageList(HttpSession session, @RequestParam(defaultValue = "1",required = true,value = "pageNo")Integer pageNo, @PathVariable(required = false) String pname){
         Object email = session.getAttribute("email");
         System.out.println("///////////" + email);
         if(email == null){
@@ -73,7 +56,6 @@ public class ProductController {
         session.setAttribute("pageInfo", pageInfo);
         return "product";
     }
-
     @GetMapping("/listbyType/{type}")
     public String pageListbyType(HttpSession session,@RequestParam(defaultValue = "1",required = true,value = "pageNo")Integer pageNo,@PathVariable(required = false) Integer type){
         Integer pageSize = 9;
@@ -87,13 +69,7 @@ public class ProductController {
         session.setAttribute("pageInfo", pageInfo);
         return "product";
     }
-    @RequestMapping("/testAjax")
-    public @ResponseBody User testAjax(@RequestBody User user){
-        System.out.println("tA执行了");
-        // 客户端发送ajax请求，传JSON字符串，后端把JSON字符串封装到user_2对象中
-        System.out.println(user);
-        return user;
-    }
+
 
     @RequestMapping("/jsp")
     public String jsp(){
@@ -111,7 +87,17 @@ public class ProductController {
         return JSON.toJSONString(pageInfo);
 
     }
-
+    @GetMapping(value = "/getProducts",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public String getProducts(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum,
+                             @RequestParam(defaultValue = "10",value = "pageSize") int pageSize,
+                             @RequestParam(defaultValue = "", value = "keyword") String keyword){
+        PageHelper.startPage(pageNum,pageSize);
+        List<Product> productList = productService.findProductByName(keyword);
+        PageInfo pageInfo = new PageInfo(productList);
+        //System.out.println(JSONObject.toJSONString(pageInfo, WriteMapNullValue));
+        return JSONObject.toJSONString(pageInfo, WriteMapNullValue);
+    }
     @GetMapping("/toSingle/{pid}")
     public String toProduct(@PathVariable(name = "pid")Integer productId, HttpSession session){
         Product product = productService.findProductById(productId);
@@ -124,5 +110,27 @@ public class ProductController {
     public String to404(){
         return "404";
     }
+    @GetMapping("/{product_id}")
+    public ModelAndView getProductById(@PathVariable Integer product_id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("product",productService.findProductById(product_id));
+        modelAndView.setViewName("adminProductSingle");
+        return modelAndView;
 
+    }
+    @GetMapping("/new")
+    public String newProduct(){
+        return "adminProductSingle";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute Product product){
+        productService.updProduct(product);
+        return "redirect:/ProductBackstageSys";
+    }
+    @GetMapping("/delete/{productId}")
+    public String delete(@PathVariable Integer productId){
+        productService.delProduct(productId);
+        return "redirect:/ProductBackstageSys";
+    }
 }

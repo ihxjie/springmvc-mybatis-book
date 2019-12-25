@@ -1,9 +1,10 @@
 package com.ex.service;
 
 import com.ex.model.OrderDetail;
+import java.util.List;
+
 
 public interface OrderDetailService {
-    int deleteByPrimaryKey(Integer purchaseQuantity);
 
     int insert(OrderDetail record);
 
@@ -14,4 +15,9 @@ public interface OrderDetailService {
     int updateByPrimaryKeySelective(OrderDetail record);
 
     int updateByPrimaryKey(OrderDetail record);
+
+    int deleteByPrimaryKey(Integer orderId);
+
+    List<OrderDetail> selectByNames(String keyword);
+
 }

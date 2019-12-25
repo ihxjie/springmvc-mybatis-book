@@ -53,4 +53,11 @@ public class OrderBasisServiceImpl implements OrderBasisService {
     public int insert(OrderBasis record) {
         return orderBasisMapper.insert(record);
     }
+
+
+    @Override
+    public List<OrderBasis> selectOrderBasisByNames(String keyword) {
+        return orderBasisMapper.selectOrderBasisByNames(keyword);
+
+    }
 }

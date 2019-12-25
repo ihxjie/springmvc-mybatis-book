@@ -21,4 +21,5 @@ public interface OrderBasisService {
 
     int insert(OrderBasis record);
 
+    List<OrderBasis> selectOrderBasisByNames(String keyword);
 }

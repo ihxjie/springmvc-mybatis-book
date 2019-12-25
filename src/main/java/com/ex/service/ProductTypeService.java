@@ -1,17 +1,13 @@
-package com.ex.dao;
+package com.ex.service;
 
 import com.ex.model.ProductType;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface ProductTypeMapper {
+public interface ProductTypeService {
     int addProductType(ProductType productType);
-    
+
     int delProductType(Integer type_id);
-    
-    List<ProductType> findAllType();
 
     List<ProductType> findTypeByNames(String keyword);
 }

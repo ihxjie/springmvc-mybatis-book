@@ -14,10 +14,6 @@ public class UserServiceImpl implements UserService {
     @Resource
     UserMapper userMapper;
 
-    @Override
-    public int deleteByUserId(Integer userId) {
-        return 0;
-    }
 
     @Override
     public int insertUser(User user) {
@@ -28,11 +24,16 @@ public class UserServiceImpl implements UserService {
     public User selectByUserId(Integer userId) {
         return null;
     }
+    @Override
+    public int deleteByUserId(Integer userId) {
+        return userMapper.deleteByUserId(userId);
+    }
 
     @Override
     public List<User> selectUserByEmail(String keyword) {
         return userMapper.selectUserByEmail(keyword);
     }
+
 
     @Override
     public int updateByPrimaryKeySelective(User record) {
