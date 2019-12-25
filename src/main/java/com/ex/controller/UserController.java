@@ -47,6 +47,14 @@ public class UserController {
         return "login";
     }
 
+    @PostMapping("/updateUser")
+    public @ResponseBody
+    String updataUser(@RequestBody User user){
+        System.out.println(user);
+        userService.updateByPrimaryKeySelective(user);
+        return "success";
+    }
+
     @PostMapping("/checkUser")
     public @ResponseBody
     String cherkUser(@RequestBody User user,HttpSession session){
@@ -73,5 +81,16 @@ public class UserController {
     @RequestMapping("/tologin")
     public String tologin(){
         return "login";
+    }
+
+    @RequestMapping("/toUserinform")
+    public String toUserinform(){
+        return "userinform";
+    }
+
+    @RequestMapping("/getout")
+    public String getout(HttpSession session){
+        session.removeAttribute("email");
+        return "redirect:/product/list/null";
     }
 }

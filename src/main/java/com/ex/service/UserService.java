@@ -7,9 +7,13 @@ import java.util.List;
 public interface UserService {
     int deleteByUserId(Integer userId);
 
-    int insertUser(User user);
-
     User selectByUserId(Integer userId);
 
     List<User> selectUserByEmail(String keyword);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
+
+    int insertUser(User user);
 }

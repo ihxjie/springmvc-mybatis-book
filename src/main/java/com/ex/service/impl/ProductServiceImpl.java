@@ -21,6 +21,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> findProductByType(Integer keword) {
+        return productMapper.findProductByType(keword);
+    }
+
+    @Override
     public List<Product> findProductByName(String keyword) {
         return productMapper.findProductsByName(keyword);
     }

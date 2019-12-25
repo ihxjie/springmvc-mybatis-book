@@ -22,6 +22,9 @@
     <mvc:resources mapping="/product/toSingle/assets/**" location="/assets/"/>
     <mvc:resources mapping="/follow/assets/**" location="/assets/"/>
     <mvc:resources mapping="/order/assets/**" location="/assets/"/>
+    <mvc:resources mapping="/cart/assets/**" location="/assets/"/>
+    <mvc:resources mapping="/border/assets/**" location="/assets/"/>
+    <mvc:resources mapping="/user/getout/**" location="/assets/"/>
 
     <!--设置配置方案-->
     <mvc:annotation-driven/>
@@ -48,6 +51,7 @@
             <mvc:mapping path="/follow/getfollow/**"/>
             <mvc:mapping path="/order/getorder/**"/>
             <mvc:mapping path="/cart/getcart/**"/>
+            <mvc:mapping path="/user/toUserinform/**"/>
             <bean class="com.ex.interceptor.UserInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

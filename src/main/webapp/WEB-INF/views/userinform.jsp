@@ -58,6 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <!--header-->
+<!--header-->
 <div class="header">
     <div class="container">
         <div class="head">
@@ -193,58 +194,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--login-->
 <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
-<%--ajax验证账号是否合法--%>
-<script type="text/javascript">
-    $(function () {
-        $("#email").blur(function () {
-            var getEmail = document.getElementById("email");
-            var getEmailmsg = document.getElementById("emailmsg");
-            var strEmail = getEmail.value;
-            if(strEmail == null || strEmail.trim().length==0){
-                $("#ok").hide();
-                $("#remove").show();
-                getEmailmsg.style.color="red";
-                getEmailmsg.innerHTML="邮箱不能为空";
-            }else{
-                var reg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
-                if(!reg.test(strEmail)){
-                    console.log(strEmail);
-                    $("#ok").hide();
-                    $("#remove").show();
-                    getEmailmsg.style.color="red";
-                    getEmailmsg.innerHTML="邮箱格式不正确";
-                }else{
-                    console.log("123");
-                    $.ajax({
-                        url:"user/checkEmailUnique",
-                        contentType:"application/json;charset=UTF-8",
-                        data:JSON.stringify({
-                            userEmail:strEmail
-                        }),
-                        dataType:"json",
-                        type:"post",
-                        success:function(data) {
-                            data = data.toString();
-                            console.log(data.length);
-                            console.log("true".length);
-                            if(data === "true"){
-                                $("#ok").show();
-                                $("#remove").hide();
-                                getEmailmsg.style.color="green";
-                                getEmailmsg.innerHTML="符合";
-                            }else{
-                                $("#ok").hide();
-                                $("#remove").show();
-                                getEmailmsg.style.color="red";
-                                getEmailmsg.innerHTML="该邮箱已被注册";
-                            }
-                        }
-                    })
-                }
-            }
-        });
-    });
-</script>
 <%--ajax验证密码是否合法--%>
 <script type="text/javascript">
     $(function () {
@@ -282,50 +231,74 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         });
     });
+    updataPassword = function(){
+        var id = "${uid}";
+        var pwd = document.getElementById("cpassword").value;
+        // alert(JSON.stringify(arry));
+        console.log(id);
+        console.log(pwd);
+        $.ajax({
+            //json格式
+            url:"user/updateUser",
+            contentType:"application/json;charset=UTF-8",
+            data:JSON.stringify({
+                "userId":id,
+                "userPassword":pwd
+            }),
+            dataType:"text",
+            type:"post",
+            success:function(data){
+                data = data.toString();
+                if (data == "success")
+                    alert("修改成功");
+                else
+                    alert("修改失败");
+            },
+            error:function (data) {
+                alert("失败");
+            }
+        });
+    }
 </script>
 <div class="container">
     <div class="login">
-            <div class="col-md-6 login-do">
-                <form action="user/postUser" method="post">
-                    <div class="login-mail" style="margin-bottom: 0px">
-                        <input id="email"  type="text" placeholder="Email" required="required" name="email">
-                        <i  class="glyphicon glyphicon-envelope"></i>
-                    </div>
-                    <div style="margin-bottom: 8px; font-size: 15px">
-                        <span class="glyphicon glyphicon-ok" id="ok" style="display: none; color: green"></span>
-                        <span class="glyphicon glyphicon-remove" id="remove" style="display: none; color: red"></span>
-                        <span id="emailmsg"></span>
-                    </div>
-                    <div class="login-mail" style="margin-bottom: 20px">
-                        <input id="password" type="password" placeholder="Password" required="required" name="password">
-                        <i class="glyphicon glyphicon-lock"></i>
-                    </div>
-                    <div class="login-mail" style="margin-bottom: 0px">
-                        <input id = "cpassword" type="password" placeholder="Confirm Password" required="required">
-                        <i class="glyphicon glyphicon-lock"></i>
-                    </div>
-                    <div style="margin-bottom: 8px; font-size: 15px">
-                        <span class="glyphicon glyphicon-ok" id="pok" style="display: none; color: green"></span>
-                        <span class="glyphicon glyphicon-remove" id="premove" style="display: none; color: red"></span>
-                        <span id="passwordmsg"></span>
-                    </div>
-                    <label class="hvr-skew-backward">
-                        <input type="submit" value="Submit" disabled="disabled" id="butt">
-                    </label>
-                </form>
+        <div class="col-md-6 login-do">
+                <div class="login-mail" style="margin-bottom: 0px">
+                    <input id="email"  type="text" placeholder="Email" required="required" name="email" value=${email} readonly="readonly">
+                    <i  class="glyphicon glyphicon-envelope"></i>
+                </div>
+                <div style="margin-bottom: 8px; font-size: 15px">
+                    <span class="glyphicon glyphicon-ok" id="ok" style="display: none; color: green"></span>
+                    <span class="glyphicon glyphicon-remove" id="remove" style="display: none; color: red"></span>
+                    <span id="emailmsg"></span>
+                </div>
+                <div class="login-mail" style="margin-bottom: 20px">
+                    <input id="password" type="password" placeholder="Password" required="required" name="password">
+                    <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <div class="login-mail" style="margin-bottom: 0px">
+                    <input id = "cpassword" type="password" placeholder="Confirm Password" required="required">
+                    <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <div style="margin-bottom: 8px; font-size: 15px">
+                    <span class="glyphicon glyphicon-ok" id="pok" style="display: none; color: green"></span>
+                    <span class="glyphicon glyphicon-remove" id="premove" style="display: none; color: red"></span>
+                    <span id="passwordmsg"></span>
+                </div>
+                <label class="hvr-skew-backward">
+                    <input type="button" value="修改" disabled="disabled" id="butt" onclick="updataPassword();">
+                </label>
+        </div>
+        <div class="col-md-6 login-right">
+            <h3>Completely Free Account</h3>
 
+            <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
+                libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
+            <a href="login.html" class="hvr-skew-backward">Login</a>
 
-            </div>
-            <div class="col-md-6 login-right">
-                <h3>Completely Free Account</h3>
+        </div>
 
-                <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
-                    libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
-                <a href="login.html" class="hvr-skew-backward">Login</a>
-
-            </div>
-
-            <div class="clearfix"> </div>
+        <div class="clearfix"> </div>
         </form>
     </div>
 

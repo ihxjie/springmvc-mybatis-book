@@ -33,4 +33,14 @@ public class UserServiceImpl implements UserService {
     public List<User> selectUserByEmail(String keyword) {
         return userMapper.selectUserByEmail(keyword);
     }
+
+    @Override
+    public int updateByPrimaryKeySelective(User record) {
+        return userMapper.updateByPrimaryKeySelective(record);
+    }
+
+    @Override
+    public int updateByPrimaryKey(User record) {
+        return 0;
+    }
 }

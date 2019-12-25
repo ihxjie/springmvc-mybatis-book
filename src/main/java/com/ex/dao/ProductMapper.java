@@ -9,6 +9,8 @@ import java.util.List;
 public interface ProductMapper {
     List<Product> findAllProduct();
 
+    List<Product> findProductByType(Integer keword);
+
     List<Product> findProductsByName(String keyword);
 
     Product findProductById(Integer product_id);
@@ -18,4 +20,5 @@ public interface ProductMapper {
     int delProduct(Integer product_id);
 
     int updProductById(Product product);
+
 }

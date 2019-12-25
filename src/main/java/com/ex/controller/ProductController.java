@@ -74,6 +74,19 @@ public class ProductController {
         return "product";
     }
 
+    @GetMapping("/listbyType/{type}")
+    public String pageListbyType(HttpSession session,@RequestParam(defaultValue = "1",required = true,value = "pageNo")Integer pageNo,@PathVariable(required = false) Integer type){
+        Integer pageSize = 9;
+        PageHelper.startPage(pageNo, pageSize);
+        List<Product> productsList;
+        if (type == null || type.equals("null"))
+            productsList = productService.findAllProduct();
+        else
+            productsList = productService.findProductByType(type);
+        PageInfo<Product> pageInfo = new PageInfo<Product>(productsList);
+        session.setAttribute("pageInfo", pageInfo);
+        return "product";
+    }
     @RequestMapping("/testAjax")
     public @ResponseBody User testAjax(@RequestBody User user){
         System.out.println("tA执行了");

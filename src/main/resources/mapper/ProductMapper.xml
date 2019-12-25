@@ -23,6 +23,10 @@
     or product_id = #{keyword}
     or type_id = (select type_id from product_type where type_name like concat('%',#{keyword},'%'))
   </select>
+  <select id="findProductByType" parameterType="Integer" resultMap="BaseResultMap">
+    select * from product
+    where type_id = #{type_id}
+  </select>
   <select id="findProductById" parameterType="Integer" resultMap="BaseResultMap">
     select * from product where product_id = #{product_id}
   </select>
