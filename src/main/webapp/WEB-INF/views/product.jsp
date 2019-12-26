@@ -74,6 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a href="user/tologin">登陆</a></li>
                     <li><a href="product/jsp">注册</a></li>
                     <li><a href="user/getout">注销</a></li>
+                    <li><a href="login">管理员登陆</a></li>
                     <li><a href="#">${email},欢迎你！</a></li>
                 </ul>
             </div>
@@ -210,7 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="mid-1">
                             <div class="women">
                                 <div class="women-top">
-                                    <span>Special Offer</span>
+                                    <span>特价甩卖</span>
                                     <h6><a href="product/toSingle/${product.productId}">${product.productName}</a></h6>
                                 </div>
                                 <div class="img item_add">
@@ -281,49 +282,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
 
         </div>
-        <div class="col-md-3 product-bottom">
-            <!--categories-->
-            <div class=" rsidebar span_1_of_left">
-                <h4 class="cate">Categories</h4>
-                <ul class="menu-drop">
-                    <li class="item1"><a href="#">Men </a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-                        </ul>
-                    </li>
-                    <li class="item2"><a href="#">Women </a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-                        </ul>
-                    </li>
-                    <li class="item3"><a href="#">Kids</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="product.html">Automatic Fails</a></li>
-                        </ul>
-                    </li>
-                    <li class="item4"><a href="#">Accessories</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="product.html">Automatic Fails</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="item4"><a href="#">Shoes</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
             <!--initiate accordion-->
             <script type="text/javascript">
                 $(function() {
@@ -344,58 +302,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 });
             </script>
-            <!--//menu-->
-            <section  class="sky-form">
-                <h4 class="cate">Discounts</h4>
-                <div class="row row1 scroll-pane">
-                    <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
-                    </div>
-                    <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>40% - 50% (5)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
-                    </div>
-                </div>
-            </section>
 
-
-            <!---->
-            <section  class="sky-form">
-                <h4 class="cate">Type</h4>
-                <div class="row row1 scroll-pane">
-                    <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Sofa Cum Beds (30)</label>
-                    </div>
-                    <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Bags  (30)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Caps & Hats (30)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Jackets & Coats   (30)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Jeans  (30)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Shirts   (30)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Sunglasses  (30)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Swimwear  (30)</label>
-                    </div>
-                </div>
-            </section>
-            <section  class="sky-form">
-                <h4 class="cate">Brand</h4>
-                <div class="row row1 scroll-pane">
-                    <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Roadstar</label>
-                    </div>
-                    <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Levis</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Persol</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Nike</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Edwin</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>New Balance</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Paul Smith</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Ray-Ban</label>
-                    </div>
-                </div>
-            </section>
         </div>
     </div class="clearfix"></div>
 <!--products-->

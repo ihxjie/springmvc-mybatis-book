@@ -325,7 +325,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="four">
         <h3>404</h3>
         <p>您暂无操作权限，请登陆后重试！</p>
-        <a href="product/list/null" class="hvr-skew-backward">Back To Home</a>
+        <a href="product/list/null" class="hvr-skew-backward">返回主页</a>
     </div>
 </div>
 <!--//login-->

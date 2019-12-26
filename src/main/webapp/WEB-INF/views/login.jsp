@@ -253,11 +253,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <button type="button" class="btn btn-lg btn-success" id="btn">login</button>
             </div>
             <div class="col-md-6 login-right">
-                <h3>Completely Free Account</h3>
+                <h3>您可用免费拥有一个账户</h3>
 
-                <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
-                    libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
-                <a href="register.html" class=" hvr-skew-backward">Register</a>
+                <p>如果您还没有一个账户，您能可以通过点击下方的按钮跳转进行注册</p>
+                <a href="product/jsp" class=" hvr-skew-backward">注册</a>
 
             </div>
 
