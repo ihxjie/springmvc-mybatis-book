@@ -35,6 +35,6 @@ public class OrderDetailController {
     @RequestMapping("/delete/{orderId}")
     public String delete(@PathVariable Integer orderId){
         orderDetailService.deleteByPrimaryKey(orderId);
-        return "redirect:/TypeBackstageSys";
+        return "redirect:/OrderDetailBackstageSys";
     }
 }

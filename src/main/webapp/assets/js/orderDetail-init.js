@@ -40,7 +40,7 @@ function getOrderDetail() {
             $.each(list,function (idx,obj) {
                 tbodyHtml += "<tr><td>" + obj.purchaseQuantity;
                 tbodyHtml += "</td><td>" + obj.orderId;
-                tbodyHtml += "</td><td>" + productId;
+                tbodyHtml += "</td><td>" + obj.productId;
                 tbodyHtml += "</td><td><a class='btn btn-danger btn-icon-split' role='button' href='orderDetail/delete/" + obj.orderId +
                     "'><span class='text-white icon'><i class='fas fa-trash'></i></span></a>";
                 tbodyHtml += "</td><tr>";

@@ -9,14 +9,7 @@ import javax.servlet.http.HttpSession;
 public class AdminInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String uri = request.getRequestURI();
-        if (uri.contains("/login") || uri.contains("/validate")){
-            return true;
-        }
-        //不拦截静态资源
-        if (uri.contains("/assets")){
-            return true;
-        }
+        //String uri = request.getRequestURI();
         HttpSession session = request.getSession();
         String username = session.getAttribute("username").toString();
         if (username != null){
@@ -25,5 +18,6 @@ public class AdminInterceptor implements HandlerInterceptor {
         request.setAttribute("info","您还没有登录，请先登录！");
         request.getRequestDispatcher("/WEB-INF/jsp/adminLogin.jsp").forward(request, response);
         return false;
+
     }
 }

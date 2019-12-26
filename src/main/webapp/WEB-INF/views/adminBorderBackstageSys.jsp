@@ -168,7 +168,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-right dataTables_filter" id="dataTable_filter"><label>
-                                    <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search" id="search-box"></label>
+                                    <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="模糊搜索" id="search-box"></label>
                                     <label><a class='btn btn-danger btn-icon-split' role='button' data-toggle="modal" href="#myModal">
                                             <span class='text-white icon'><i class='fas fa-plus'></i> 新增公告</span></a>
                                     </label>
