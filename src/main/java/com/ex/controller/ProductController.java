@@ -130,6 +130,7 @@ public class ProductController {
     }
     @GetMapping("/delete/{productId}")
     public String delete(@PathVariable Integer productId){
+        System.out.println(productId);
         productService.delProduct(productId);
         return "redirect:/ProductBackstageSys";
     }

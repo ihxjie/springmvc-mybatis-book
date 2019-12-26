@@ -317,11 +317,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </div>
             <div class="col-md-6 login-right">
-                <h3>Completely Free Account</h3>
+                <h3>您可免费拥有一个账户</h3>
 
-                <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
-                    libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
-                <a href="login.html" class="hvr-skew-backward">Login</a>
+                <p>如果您还已有一个账户,您可以点击下方的连接进行登陆</p>
+                <a href="user/tologin" class="hvr-skew-backward">Login</a>
 
             </div>
 

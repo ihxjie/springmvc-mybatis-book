@@ -286,15 +286,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span id="passwordmsg"></span>
                 </div>
                 <label class="hvr-skew-backward">
-                    <input type="button" value="修改" disabled="disabled" id="butt" onclick="updataPassword();">
+                    <a disabled="disabled" id="butt" onclick="updataPassword();">修改</a>
                 </label>
         </div>
         <div class="col-md-6 login-right">
-            <h3>Completely Free Account</h3>
+            <h3>密码重置</h3>
 
-            <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
-                libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
-            <a href="login.html" class="hvr-skew-backward">Login</a>
+            <p>如果您忘记了密码可以在此处进行密码的重置</p>
 
         </div>
 
