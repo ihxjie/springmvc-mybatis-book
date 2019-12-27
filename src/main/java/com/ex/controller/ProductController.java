@@ -33,8 +33,10 @@ public class ProductController {
     }
 
     @PostMapping(path = "/add")
-    public void add(@ModelAttribute Product product){
+
+    public String add(@ModelAttribute Product product){
         productService.addProduct(product);
+        return "redirect:/ProductBackstageSys";
     }
 
     @GetMapping(value = {"/list/{pname}","/list"})
